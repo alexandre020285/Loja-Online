@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model eletronics {
+  id          Int     @id(map: "videogame_pkey")
+  name        String  @db.VarChar(255)
+  price       Decimal @db.Decimal(10, 2)
+  description String
+  image       String  @db.VarChar(255)
+  brand       String  @db.VarChar(100)
+  sizes       String  @db.VarChar(255)
+}
+
+model mensclothing {
+  id          Int     @id
+  name        String  @db.VarChar(255)
+  price       Decimal @db.Decimal(10, 2)
+  description String
+  image       String  @db.VarChar(255)
+  brand       String  @db.VarChar(100)
+  sizes       String  @db.VarChar(255)
+}
+
+model mensshoes {
+  id          Int     @id
+  name        String  @db.VarChar(255)
+  price       Decimal @db.Decimal(10, 2)
+  description String
+  image       String  @db.VarChar(255)
+  brand       String  @db.VarChar(100)
+  sizes       String  @db.VarChar(255)
+}
+
+model toys {
+  id          Int     @id
+  name        String  @db.VarChar(255)
+  price       Decimal @db.Decimal(10, 2)
+  description String
+  image       String  @db.VarChar(255)
+  brand       String  @db.VarChar(100)
+  sizes       String  @db.VarChar(255)
+}
+
+model womensclothing {
+  id          Int     @id
+  name        String  @db.VarChar(255)
+  price       Decimal @db.Decimal(10, 2)
+  description String
+  image       String  @db.VarChar(255)
+  brand       String  @db.VarChar(100)
+  sizes       String  @db.VarChar(255)
+}
+
+model womenshoes {
+  id          Int     @id
+  name        String  @db.VarChar(255)
+  price       Decimal @db.Decimal(10, 2)
+  description String
+  image       String  @db.VarChar(255)
+  brand       String  @db.VarChar(100)
+  sizes       String  @db.VarChar(255)
+}
