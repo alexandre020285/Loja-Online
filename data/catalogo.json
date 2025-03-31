@@ -1,0 +1,963 @@
+{
+  "categorias": {
+    "calcados_masculinos": [
+      {
+        "id": 1,
+        "nome": "Tênis Nike Air Max",
+        "preco": 599.9,
+        "descricao": "Tênis esportivo masculino para corrida",
+        "imagem": "https://imgnike-a.akamaihd.net/768x768/02463151.jpg",
+        "marca": "Nike",
+        "tamanhos": ["39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 2,
+        "nome": "Sapato Social Democrata",
+        "preco": 299.9,
+        "descricao": "Sapato social em couro legítimo",
+        "imagem": "https://democrata.vteximg.com.br/arquivos/ids/159461-1000-1000/sapato-casual-democrata-madison-preto-01",
+        "marca": "Democrata",
+        "tamanhos": ["38", "39", "40", "41", "42"]
+      },
+      {
+        "id": 3,
+        "nome": "Chinelo Havaianas Urban",
+        "preco": 59.9,
+        "descricao": "Chinelo masculino casual",
+        "imagem": "https://havaianas.com.br/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-havaianas-master/default/dw1f4b6946/product-images/4000029_0090_1.jpg",
+        "marca": "Havaianas",
+        "tamanhos": ["39/40", "41/42", "43/44"]
+      },
+      {
+        "id": 4,
+        "nome": "Tênis Adidas Superstar",
+        "preco": 499.9,
+        "descricao": "Tênis casual masculino clássico",
+        "imagem": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7ed0855435194229a525aad6009a0497_9366/Tenis_Superstar_Branco_EG4958_01_standard.jpg",
+        "marca": "Adidas",
+        "tamanhos": ["38", "39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 5,
+        "nome": "Botina West Coast",
+        "preco": 289.9,
+        "descricao": "Botina em couro para trabalho",
+        "imagem": "https://westcoast.vteximg.com.br/arquivos/ids/229022-1000-1000/129502-1-122-Whisky--1-.jpg",
+        "marca": "West Coast",
+        "tamanhos": ["38", "39", "40", "41", "42", "43", "44"]
+      },
+      {
+        "id": 6,
+        "nome": "Tênis Mizuno Wave Creation",
+        "preco": 799.9,
+        "descricao": "Tênis esportivo para corrida de alta performance",
+        "imagem": "https://static.netshoes.com.br/produtos/tenis-mizuno-wave-creation-23-masculino/26/2FU-5885-026/2FU-5885-026_zoom1.jpg",
+        "marca": "Mizuno",
+        "tamanhos": ["39", "40", "41", "42", "43", "44"]
+      },
+      {
+        "id": 7,
+        "nome": "Sandália Cartago",
+        "preco": 99.9,
+        "descricao": "Sandália masculina confortável",
+        "imagem": "https://static.netshoes.com.br/produtos/sandalia-cartago-mali-x-masculina/06/D72-0146-006/D72-0146-006_zoom1.jpg",
+        "marca": "Cartago",
+        "tamanhos": ["38", "39", "40", "41", "42"]
+      },
+      {
+        "id": 8,
+        "nome": "Sapato Casual Sergio K",
+        "preco": 559.9,
+        "descricao": "Sapato casual em camurça",
+        "imagem": "https://sergiok.vteximg.com.br/arquivos/ids/211681-1000-1000/sapato-casual-sergio-k-marrom-01.jpg",
+        "marca": "Sergio K",
+        "tamanhos": ["38", "39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 9,
+        "nome": "Tênis Puma Suede",
+        "preco": 399.9,
+        "descricao": "Tênis casual em camurça",
+        "imagem": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_1050,h_1050/global/374915/01/sv01/fnd/BRA/fmt/png/T%C3%AAnis-Suede-Classic-XXI-Masculino",
+        "marca": "Puma",
+        "tamanhos": ["39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 10,
+        "nome": "Bota Timberland Yellow Boot",
+        "preco": 899.9,
+        "descricao": "Bota masculina clássica em couro",
+        "imagem": "https://static.netshoes.com.br/produtos/bota-couro-timberland-yellow-boot-6-premium-wp-masculina/73/D25-3787-773/D25-3787-773_zoom1.jpg",
+        "marca": "Timberland",
+        "tamanhos": ["39", "40", "41", "42", "43", "44"]
+      },
+      {
+        "id": 11,
+        "nome": "Sapatênis Lacoste",
+        "preco": 649.9,
+        "descricao": "Sapatênis casual masculino",
+        "imagem": "https://images.lacoste.com/is/image/lacoste/40CMA00261R5_14Z_01/@?wid=1200&hei=1200&qlt=80",
+        "marca": "Lacoste",
+        "tamanhos": ["39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 12,
+        "nome": "Tênis New Balance 574",
+        "preco": 499.9,
+        "descricao": "Tênis casual retrô",
+        "imagem": "https://newbalance.vteximg.com.br/arquivos/ids/163756-1000-1000/ML574EVN_1.jpg",
+        "marca": "New Balance",
+        "tamanhos": ["39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 13,
+        "nome": "Tênis Vans Old Skool",
+        "preco": 399.9,
+        "descricao": "Tênis skate clássico",
+        "imagem": "https://secure-static.vans.com.br/medias/sys_master/vans/vans/hbb/h70/h00/h00/10579424616478/1002000470089U-01-BASEIMAGE-Hires.jpg",
+        "marca": "Vans",
+        "tamanhos": ["38", "39", "40", "41", "42", "43"]
+      },
+      {
+        "id": 14,
+        "nome": "Mocassim Ferracini",
+        "preco": 299.9,
+        "descricao": "Mocassim em couro legítimo",
+        "imagem": "https://ferracini.vteximg.com.br/arquivos/ids/225429-1000-1000/4470-574H-Granado-01.jpg",
+        "marca": "Ferracini",
+        "tamanhos": ["38", "39", "40", "41", "42"]
+      },
+      {
+        "id": 15,
+        "nome": "Alpargata Reserva",
+        "preco": 179.9,
+        "descricao": "Alpargata casual em lona",
+        "imagem": "https://usereserva.com/arquivos/ids/3485041-1000-1000/0052578_alpargata-estampada_z1.jpg",
+        "marca": "Reserva",
+        "tamanhos": ["38", "39", "40", "41", "42", "43"]
+      }
+    ],
+    "calcados_femininos": [
+      {
+        "id": 16,
+        "nome": "Scarpin Arezzo",
+        "preco": 299.9,
+        "descricao": "Scarpin em couro com salto alto",
+        "imagem": "https://arezzo.vteximg.com.br/arquivos/ids/275841-1000-1000/01_02_0001_233_1.jpg",
+        "marca": "Arezzo",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 17,
+        "nome": "Tênis Adidas Ultraboost",
+        "preco": 699.9,
+        "descricao": "Tênis feminino para corrida",
+        "imagem": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Branco_GX5459_01_standard.jpg",
+        "marca": "Adidas",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 18,
+        "nome": "Sandália Melissa",
+        "preco": 159.9,
+        "descricao": "Sandália feminina em PVC",
+        "imagem": "https://melissa.com.br/on/demandware.static/-/Sites-melissa-br-catalog/default/dw50f05b63/images/hi-res/33394-53756-1.jpg",
+        "marca": "Melissa",
+        "tamanhos": ["35/36", "37/38", "39/40"]
+      },
+      {
+        "id": 19,
+        "nome": "Bota Cano Curto Santa Lolla",
+        "preco": 359.9,
+        "descricao": "Bota feminina em couro",
+        "imagem": "https://santalolla.vteximg.com.br/arquivos/ids/1075336-1000-1000/01040183002200010.jpg",
+        "marca": "Santa Lolla",
+        "tamanhos": ["34", "35", "36", "37", "38", "39"]
+      },
+      {
+        "id": 20,
+        "nome": "Sandália Anacapri",
+        "preco": 139.9,
+        "descricao": "Sandália rasteira feminina",
+        "imagem": "https://anacapri.vteximg.com.br/arquivos/ids/934539-1000-1000/AN20210124-01-01.jpg",
+        "marca": "Anacapri",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 21,
+        "nome": "Sapatilha Moleca",
+        "preco": 99.9,
+        "descricao": "Sapatilha feminina básica",
+        "imagem": "https://calcados.vteximg.com.br/arquivos/ids/223532-1000-1000/Sapatilha-Moleca-Nude-5762201-5762201_073-01.jpg",
+        "marca": "Moleca",
+        "tamanhos": ["34", "35", "36", "37", "38", "39"]
+      },
+      {
+        "id": 22,
+        "nome": "Tênis Vizzano",
+        "preco": 169.9,
+        "descricao": "Tênis casual feminino",
+        "imagem": "https://vizzano.vteximg.com.br/arquivos/ids/303487-1000-1000/Tenis-Feminino-Estampado-Vizzano.jpg",
+        "marca": "Vizzano",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 23,
+        "nome": "Ankle Boot Schutz",
+        "preco": 459.9,
+        "descricao": "Bota cano curto com salto",
+        "imagem": "https://schutz.vteximg.com.br/arquivos/ids/1198042-1000-1000/S022180147001-1.jpg",
+        "marca": "Schutz",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 24,
+        "nome": "Sandália Anabela Corello",
+        "preco": 329.9,
+        "descricao": "Sandália com salto anabela",
+        "imagem": "https://corello.vteximg.com.br/arquivos/ids/163651-1000-1000/10152-01-01.jpg",
+        "marca": "Corello",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 25,
+        "nome": "Tênis Puma Carina",
+        "preco": 299.9,
+        "descricao": "Tênis casual feminino",
+        "imagem": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_1050,h_1050/global/369864/01/sv01/fnd/BRA/fmt/png/T%C3%AAnis-Puma-Carina-Slim-SL-Feminino",
+        "marca": "Puma",
+        "tamanhos": ["34", "35", "36", "37", "38", "39"]
+      },
+      {
+        "id": 26,
+        "nome": "Rasteirinha Via Uno",
+        "preco": 119.9,
+        "descricao": "Rasteirinha com apliques",
+        "imagem": "https://viauno.vteximg.com.br/arquivos/ids/188023-1000-1000/32490305101-1.jpg",
+        "marca": "Via Uno",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 27,
+        "nome": "Bota Over the Knee Shoestock",
+        "preco": 399.9,
+        "descricao": "Bota cano longo feminina",
+        "imagem": "https://shoestock.vteximg.com.br/arquivos/ids/523293-1000-1000/Bota-Over-the-Knee-Feminina-Shoestock-Flat-Nobuck.jpg",
+        "marca": "Shoestock",
+        "tamanhos": ["34", "35", "36", "37", "38"]
+      },
+      {
+        "id": 28,
+        "nome": "Mule Amaro",
+        "preco": 189.9,
+        "descricao": "Mule feminino com salto bloco",
+        "imagem": "https://images.amaro.com/images/shoes/01190144010001/foto1-01190144010001.jpg",
+        "marca": "Amaro",
+        "tamanhos": ["34", "35", "36", "37", "38", "39"]
+      },
+      {
+        "id": 29,
+        "nome": "Tênis Converse All Star",
+        "preco": 229.9,
+        "descricao": "Tênis cano alto clássico",
+        "imagem": "https://static.netshoes.com.br/produtos/tenis-converse-all-star-core-hi/06/D26-0001-006/D26-0001-006_zoom1.jpg",
+        "marca": "Converse",
+        "tamanhos": ["34", "35", "36", "37", "38", "39"]
+      },
+      {
+        "id": 30,
+        "nome": "Oxford Piccadilly",
+        "preco": 179.9,
+        "descricao": "Sapato Oxford feminino",
+        "imagem": "https://piccadilly.vteximg.com.br/arquivos/ids/202455-1000-1000/743049-18.jpg",
+        "marca": "Piccadilly",
+        "tamanhos": ["34", "35", "36", "37", "38", "39"]
+      }
+    ],
+    "roupas_masculinas": [
+      {
+        "id": 31,
+        "nome": "Camisa Social Dudalina",
+        "preco": 399.9,
+        "descricao": "Camisa social slim fit",
+        "imagem": "https://dudalina.vteximg.com.br/arquivos/ids/163952-1000-1000/03-02-0823-001-1-zoom.jpg",
+        "marca": "Dudalina",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 32,
+        "nome": "Calça Jeans Levis",
+        "preco": 299.9,
+        "descricao": "Calça jeans reta tradicional",
+        "imagem": "https://levi.vteximg.com.br/arquivos/ids/226876-1000-1000/Calca-Jeans-Levis-505-Regular.jpg",
+        "marca": "Levis",
+        "tamanhos": ["38", "40", "42", "44"]
+      },
+      {
+        "id": 33,
+        "nome": "Camiseta Reserva",
+        "preco": 129.9,
+        "descricao": "Camiseta básica em algodão",
+        "imagem": "https://usereserva.com/arquivos/ids/1876540-1000-1000/0049172_camiseta-basica-masculina_z1.jpg",
+        "marca": "Reserva",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 34,
+        "nome": "Blazer Ricardo Almeida",
+        "preco": 1299.9,
+        "descricao": "Blazer masculino em lã",
+        "imagem": "https://ricardoalmeida.vteximg.com.br/arquivos/ids/169629-1000-1000/01_10_0022-001.jpg",
+        "marca": "Ricardo Almeida",
+        "tamanhos": ["48", "50", "52", "54"]
+      },
+      {
+        "id": 35,
+        "nome": "Polo Tommy Hilfiger",
+        "preco": 399.9,
+        "descricao": "Camisa polo clássica",
+        "imagem": "https://tommy.vteximg.com.br/arquivos/ids/199089-1000-1000/MW0MW17793_XM9_1.jpg",
+        "marca": "Tommy Hilfiger",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 36,
+        "nome": "Bermuda Hering",
+        "preco": 159.9,
+        "descricao": "Bermuda chino masculina",
+        "imagem": "https://hering.vteximg.com.br/arquivos/ids/200536-1000-1000/KY81-NUC-01.jpg",
+        "marca": "Hering",
+        "tamanhos": ["38", "40", "42", "44", "46"]
+      },
+      {
+        "id": 37,
+        "nome": "Moletom Osklen",
+        "preco": 499.9,
+        "descricao": "Moletom com capuz",
+        "imagem": "https://osklen.vteximg.com.br/arquivos/ids/322867-1000-1000/63021112_0.jpg",
+        "marca": "Osklen",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 38,
+        "nome": "Calça de Moletom Adidas",
+        "preco": 299.9,
+        "descricao": "Calça esportiva masculina",
+        "imagem": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e3f7c26c7c9e4e9eb096abb700badd18_9366/Calca_3-Stripes_Preto_DV1549_01_laydown.jpg",
+        "marca": "Adidas",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 39,
+        "nome": "Jaqueta Jeans VR",
+        "preco": 459.9,
+        "descricao": "Jaqueta jeans masculina",
+        "imagem": "https://vr.vteximg.com.br/arquivos/ids/246022-1000-1000/02-05-0093-038-1.jpg",
+        "marca": "VR",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 40,
+        "nome": "Camisa Xadrez Forum",
+        "preco": 359.9,
+        "descricao": "Camisa xadrez em flanela",
+        "imagem": "https://forum.vteximg.com.br/arquivos/ids/9582931-1000-1000/03-01-1058-009-1.jpg",
+        "marca": "Forum",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 41,
+        "nome": "Suéter Calvin Klein",
+        "preco": 399.9,
+        "descricao": "Suéter masculino em tricô",
+        "imagem": "https://calvinklein.vteximg.com.br/arquivos/ids/197243-1000-1000/CM1OC205_000_1.jpg",
+        "marca": "Calvin Klein",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 42,
+        "nome": "Regata Nike Dri-Fit",
+        "preco": 149.9,
+        "descricao": "Regata esportiva masculina",
+        "imagem": "https://imgnike-a.akamaihd.net/768x768/021960ID.jpg",
+        "marca": "Nike",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 43,
+        "nome": "Shorts Lacoste",
+        "preco": 459.9,
+        "descricao": "Shorts esportivo masculino",
+        "imagem": "https://images.lacoste.com/is/image/lacoste/MP_GH0561_423_24?$product-600x686-lacoste$",
+        "marca": "Lacoste",
+        "tamanhos": ["40", "42", "44", "46"]
+      },
+      {
+        "id": 44,
+        "nome": "Pijama Lupo",
+        "preco": 179.9,
+        "descricao": "Conjunto de pijama masculino",
+        "imagem": "https://lupo.vteximg.com.br/arquivos/ids/206518-1000-1000/28002-001-0000-0001.jpg",
+        "marca": "Lupo",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 45,
+        "nome": "Casaco Columbia",
+        "preco": 899.9,
+        "descricao": "Casaco impermeável masculino",
+        "imagem": "https://columbia.vteximg.com.br/arquivos/ids/196979-1000-1000/1864691_464_f.jpg",
+        "marca": "Columbia",
+        "tamanhos": ["P", "M", "G", "GG", "GGG"]
+      }
+    ],
+    "roupas_femininas": [
+      {
+        "id": 46,
+        "nome": "Vestido Farm",
+        "preco": 359.9,
+        "descricao": "Vestido estampado midi",
+        "imagem": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/111/744/products/vestido-farm1-37d7e0a7b6a6ea459116560290504827-1024-1024.jpg",
+        "marca": "Farm",
+        "tamanhos": ["P", "M", "G"]
+      },
+      {
+        "id": 47,
+        "nome": "Calça Zara",
+        "preco": 199.9,
+        "descricao": "Calça social feminina",
+        "imagem": "https://static.zara.net/photos///2024/V/0/1/p/2753/240/800/2/w/563/2753240800_1_1_1.jpg",
+        "marca": "Zara",
+        "tamanhos": ["36", "38", "40", "42"]
+      },
+      {
+        "id": 48,
+        "nome": "Blusa Le Lis Blanc",
+        "preco": 459.9,
+        "descricao": "Blusa em seda",
+        "imagem": "https://lelis.vteximg.com.br/arquivos/ids/3391441-1000-1000/04-01-8984-167-1.jpg",
+        "marca": "Le Lis Blanc",
+        "tamanhos": ["P", "M", "G"]
+      },
+      {
+        "id": 49,
+        "nome": "Saia Midi C&A",
+        "preco": 139.9,
+        "descricao": "Saia midi plissada",
+        "imagem": "https://img.cea.com.br/catalog/product/cache/ec8a60e016a18954fb87e91e640a5c65/s/a/saia-midi-plissada-com-fendas-dourada-1007249-dourado_10.jpg",
+        "marca": "C&A",
+        "tamanhos": ["PP", "P", "M", "G", "GG"]
+      },
+      {
+        "id": 50,
+        "nome": "Blazer Amaro",
+        "preco": 329.9,
+        "descricao": "Blazer feminino alfaiataria",
+        "imagem": "https://images.amaro.com/images/outerwear/01500600010001/foto1-01500600010001.jpg",
+        "marca": "Amaro",
+        "tamanhos": ["PP", "P", "M", "G"]
+      },
+      {
+        "id": 51,
+        "nome": "Calça Legging Lupo",
+        "preco": 129.9,
+        "descricao": "Legging fitness de compressão",
+        "imagem": "https://lupo.vteximg.com.br/arquivos/ids/171522-1000-1000/71721-001-P-1.jpg",
+        "marca": "Lupo",
+        "tamanhos": ["P", "M", "G"]
+      },
+      {
+        "id": 52,
+        "nome": "Cropped Maria Filó",
+        "preco": 229.9,
+        "descricao": "Cropped bordado",
+        "imagem": "https://mariafilo.vteximg.com.br/arquivos/ids/740982-1000-1000/40220067_015_1-CROPPED-BORDADO-AGULHA.jpg",
+        "marca": "Maria Filó",
+        "tamanhos": ["PP", "P", "M", "G"]
+      },
+      {
+        "id": 53,
+        "nome": "Jaqueta Jeans Renner",
+        "preco": 199.9,
+        "descricao": "Jaqueta jeans feminina oversized",
+        "imagem": "https://img.lojasrenner.com.br/item/588037469/large/1.jpg",
+        "marca": "Renner",
+        "tamanhos": ["P", "M", "G", "GG"]
+      },
+      {
+        "id": 54,
+        "nome": "Macacão Shoulder",
+        "preco": 599.9,
+        "descricao": "Macacão longo feminino",
+        "imagem": "https://shoulder.vteximg.com.br/arquivos/ids/384261-1000-1000/01-01-7170-201-1.jpg",
+        "marca": "Shoulder",
+        "tamanhos": ["36", "38", "40", "42"]
+      },
+      {
+        "id": 55,
+        "nome": "Shorts Jeans Damyller",
+        "preco": 229.9,
+        "descricao": "Shorts jeans feminino cintura alta",
+        "imagem": "https://damyller.vteximg.com.br/arquivos/ids/204784-1000-1000/D22045000028-2.jpg",
+        "marca": "Damyller",
+        "tamanhos": ["36", "38", "40", "42", "44"]
+      },
+      {
+        "id": 56,
+        "nome": "Body Skunk",
+        "preco": 159.9,
+        "descricao": "Body feminino básico",
+        "imagem": "https://skunk.vteximg.com.br/arquivos/ids/209631-1000-1000/body-preto-basico-skunk-1.jpg",
+        "marca": "Skunk",
+        "tamanhos": ["P", "M", "G"]
+      },
+      {
+        "id": 57,
+        "nome": "Casaco de Inverno Youcom",
+        "preco": 359.9,
+        "descricao": "Casaco feminino longo",
+        "imagem": "https://youcom.vteximg.com.br/arquivos/ids/302112-1000-1000/310103730_b1-1-.jpg",
+        "marca": "Youcom",
+        "tamanhos": ["P", "M", "G"]
+      },
+      {
+        "id": 58,
+        "nome": "Pijama Hope",
+        "preco": 249.9,
+        "descricao": "Conjunto de pijama feminino",
+        "imagem": "https://hopelingerie.vteximg.com.br/arquivos/ids/185694-1000-1000/0033_KIT_CALCA_COM_BLUSA_MANGA_CURTA_PIJAMA_PRETO_0125.jpg",
+        "marca": "Hope",
+        "tamanhos": ["P", "M", "G"]
+      },
+      {
+        "id": 59,
+        "nome": "Vestido de Festa Agilità",
+        "preco": 899.9,
+        "descricao": "Vestido longo de festa",
+        "imagem": "https://agilita.vteximg.com.br/arquivos/ids/225022-1000-1000/01-01-0109-003-1.jpg",
+        "marca": "Agilità",
+        "tamanhos": ["38", "40", "42", "44"]
+      },
+      {
+        "id": 60,
+        "nome": "Biquíni Cia Marítima",
+        "preco": 299.9,
+        "descricao": "Biquíni cortininha",
+        "imagem": "https://ciamaritima.vteximg.com.br/arquivos/ids/348318-1000-1000/00BK18-02290_MULTICOLORIDO_1.jpg",
+        "marca": "Cia Marítima",
+        "tamanhos": ["P", "M", "G"]
+      }
+    ],
+    "eletronicos": [
+      {
+        "id": 61,
+        "nome": "iPhone 15 Pro",
+        "preco": 7999.9,
+        "descricao": "Smartphone Apple 256GB",
+        "imagem": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=1200&hei=1200&fmt=jpeg&qlt=95",
+        "marca": "Apple",
+        "cor": ["Titânio Natural", "Preto", "Branco"]
+      },
+      {
+        "id": 62,
+        "nome": "Smart TV Samsung 65\"",
+        "preco": 4599.9,
+        "descricao": "TV LED 4K HDR",
+        "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un65au7700gxzd/gallery/br-uhd-au7000-un65au7700gxzd-thumb-409646099",
+        "marca": "Samsung",
+        "polegadas": "65"
+      },
+      {
+        "id": 63,
+        "nome": "Notebook Dell Inspiron",
+        "preco": 4299.9,
+        "descricao": "Intel Core i5, 8GB RAM, 256GB SSD",
+        "imagem": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/15-3520/media-gallery/in3520-xnb-01-sl.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=402&qlt=100,1&resMode=sharp2&size=402,402",
+        "marca": "Dell",
+        "modelo": "Inspiron 15"
+      },
+      {
+        "id": 64,
+        "nome": "Fone de Ouvido JBL",
+        "preco": 499.9,
+        "descricao": "Fone Bluetooth com cancelamento de ruído",
+        "imagem": "https://br.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw0e9df58a/JBL_TUNE660NC_Product%20Image_Hero_Blue.png",
+        "marca": "JBL",
+        "modelo": "Tune 660NC"
+      },
+      {
+        "id": 65,
+        "nome": "PlayStation 5 Digital",
+        "preco": 3999.9,
+        "descricao": "Console Sony PS5 Digital Edition",
+        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21",
+        "marca": "Sony",
+        "armazenamento": "825GB"
+      },
+      {
+        "id": 66,
+        "nome": "Smartwatch Apple Watch",
+        "preco": 3499.9,
+        "descricao": "Relógio inteligente Series 9",
+        "imagem": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQDY3ref_VW_34FR+watch-45-alum-midnight-nc-9s_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1683223248291",
+        "marca": "Apple",
+        "modelo": "Series 9"
+      },
+      {
+        "id": 67,
+        "nome": "Câmera Canon EOS",
+        "preco": 5299.9,
+        "descricao": "Câmera DSLR profissional",
+        "imagem": "https://www.canon.com.br/upload/produto/produto_142_1_m.jpg",
+        "marca": "Canon",
+        "modelo": "EOS Rebel T7"
+      },
+      {
+        "id": 68,
+        "nome": "Tablet Samsung Galaxy Tab",
+        "preco": 2799.9,
+        "descricao": "Tablet Android com S Pen",
+        "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/sm-x710nzaazto/gallery/br-galaxy-tab-s8-wifi-sm-x710-sm-x710nzaazto-thumb-534863264",
+        "marca": "Samsung",
+        "modelo": "Galaxy Tab S8"
+      },
+      {
+        "id": 69,
+        "nome": "Home Theater LG",
+        "preco": 1899.9,
+        "descricao": "Sistema de som 5.1 canais",
+        "imagem": "https://www.lg.com/br/images/home-theater-systems/md07529357/gallery/medium01.jpg",
+        "marca": "LG",
+        "potencia": "1000W"
+      },
+      {
+        "id": 70,
+        "nome": "Kindle Paperwhite",
+        "preco": 699.9,
+        "descricao": "E-reader à prova d'água",
+        "imagem": "https://m.media-amazon.com/images/I/61VU2vJjy4L._AC_SL1000_.jpg",
+        "marca": "Amazon",
+        "armazenamento": "8GB"
+      },
+      {
+        "id": 71,
+        "nome": "Monitor Gamer Acer",
+        "preco": 1599.9,
+        "descricao": "Monitor 27\" 144Hz",
+        "imagem": "https://www.acer.com/content/dam/acer/global/brand/products/monitors/gaming/predator-xb323qk-nv/gallery/XB323QK-NV-gallery-01.png",
+        "marca": "Acer",
+        "tamanho": "27 polegadas"
+      },
+      {
+        "id": 72,
+        "nome": "Impressora HP",
+        "preco": 899.9,
+        "descricao": "Impressora multifuncional",
+        "imagem": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06578576.png",
+        "marca": "HP",
+        "modelo": "DeskJet Plus"
+      },
+      {
+        "id": 73,
+        "nome": "Drone DJI Mini",
+        "preco": 4999.9,
+        "descricao": "Drone com câmera 4K",
+        "imagem": "https://dji-official-fe.djicdn.com/dps/a6c2301e1a79a5c92761e74d2c8cd83c.jpg",
+        "marca": "DJI",
+        "modelo": "Mini 3 Pro"
+      },
+      {
+        "id": 74,
+        "nome": "Caixa de Som JBL",
+        "preco": 999.9,
+        "descricao": "Caixa de som Bluetooth à prova d'água",
+        "imagem": "https://br.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwcde06e00/JBL_Pulse5_Hero_Black_1605x1605px.png",
+        "marca": "JBL",
+        "modelo": "Pulse 5"
+      },
+      {
+        "id": 75,
+        "nome": "Projetor Epson",
+        "preco": 3999.9,
+        "descricao": "Projetor Full HD",
+        "imagem": "https://epson.com.br/file/repositorio-produto-e-driver/Projetores/PowerLite-X39/54084-PowerLiteX39-XGA-3LCD-Projector_690x460.png",
+        "marca": "Epson",
+        "modelo": "PowerLite X39"
+      }
+    ],
+    "brinquedos": [
+      {
+        "id": 76,
+        "nome": "LEGO City",
+        "preco": 499.9,
+        "descricao": "Conjunto de construção Cidade",
+        "imagem": "https://www.lego.com/cdn/cs/set/assets/blt5c45912f9f40c3d8/60392.png",
+        "marca": "LEGO",
+        "idade": "6+"
+      },
+      {
+        "id": 77,
+        "nome": "Barbie Profissões",
+        "preco": 199.9,
+        "descricao": "Boneca Barbie Médica",
+        "imagem": "https://images.mattel.com/scene7/?$ossmallindex$&storeId=10151&SKU=HCN48",
+        "marca": "Mattel",
+        "idade": "3+"
+      },
+      {
+        "id": 78,
+        "nome": "Hot Wheels Pista",
+        "preco": 299.9,
+        "descricao": "Pista de corrida com loops",
+        "imagem": "https://images.mattel.com/scene7/?$ossmallindex$&storeId=10151&SKU=GLC96",
+        "marca": "Hot Wheels",
+        "idade": "5+"
+      },
+      {
+        "id": 79,
+        "nome": "Nerf Elite",
+        "preco": 199.9,
+        "descricao": "Lançador de dardos",
+        "imagem": "https://hasbro-new.akamaized.net/products/5F6D2C6850569047F57BAC30/3a67c87c6e40feff09d8c41c6ae6a9d0/c5afcdab9d4cb33e89c26e1c1b4b84de.webp",
+        "marca": "Hasbro",
+        "idade": "8+"
+      },
+      {
+        "id": 80,
+        "nome": "Monopoly",
+        "preco": 129.9,
+        "descricao": "Jogo de tabuleiro clássico",
+        "imagem": "https://hasbro-new.akamaized.net/products/54D94B5150569047F5B88082/c372453b37a49d033c0baf43d9ddc3e8/76ae0309fac79e1f2e8b56fb37ad30c6.webp",
+        "marca": "Hasbro",
+        "idade": "8+"
+      },
+      {
+        "id": 81,
+        "nome": "Quebra-Cabeça Grow",
+        "preco": 79.9,
+        "descricao": "Quebra-cabeça 1000 peças",
+        "imagem": "https://grow.com.br/wp-content/uploads/2022/05/3744.png",
+        "marca": "Grow",
+        "idade": "10+"
+      },
+      {
+        "id": 82,
+        "nome": "Carrinho de Controle Remoto",
+        "preco": 299.9,
+        "descricao": "Carro de controle remoto 4x4",
+        "imagem": "https://cdn.awsli.com.br/800x800/527/527742/produto/134256222/carro-controle-remoto-4x4-rock-crawler-r-c-1-20-3698-5-bateria-usb-carregamento-rapido-completo-vermelho-5mmsjgbtnv.jpg",
+        "marca": "Multilaser",
+        "idade": "6+"
+      },
+      {
+        "id": 83,
+        "nome": "Boneco Homem Aranha",
+        "preco": 149.9,
+        "descricao": "Boneco articulado Marvel",
+        "imagem": "https://images.hasbro.com/1589559073/a3344e19-dcd5-31d9-acd5-24d0a66e6c5e/0eff9c5d-b0be-5a01-a9a9-96cc3ffce55d.webp",
+        "marca": "Hasbro",
+        "idade": "4+"
+      },
+      {
+        "id": 84,
+        "nome": "Slime Kit",
+        "preco": 59.9,
+        "descricao": "Kit para fazer slime",
+        "imagem": "https://a-static.mlcdn.com.br/800x560/kit-slime-completo-unicornio-arco-iris-criancas-4-slimes-prontos-fabrica-de-slime/mlfashionwear/sli1unicornio/88e0a5f8273f5e86649c85a08dcaa2e2.jpeg",
+        "marca": "Acrilex",
+        "idade": "6+"
+      },
+      {
+        "id": 85,
+        "nome": "Playmobil Cavaleiros",
+        "preco": 339.9,
+        "descricao": "Conjunto castelo medieval",
+        "imagem": "https://d2r9epyceweg5n.cloudfront.net/stores/001/135/035/products/10-70221-main-1-700x7001-09bcfafee30dc2c68516144273177950-640-0.jpg",
+        "marca": "Playmobil",
+        "idade": "4+"
+      },
+      {
+        "id": 86,
+        "nome": "UNO",
+        "preco": 29.9,
+        "descricao": "Jogo de cartas",
+        "imagem": "https://copag.com.br/sites/default/files/products/jogo-classico-uno-caixa_1_0.png",
+        "marca": "Mattel",
+        "idade": "7+"
+      },
+      {
+        "id": 87,
+        "nome": "Baby Alive",
+        "preco": 259.9,
+        "descricao": "Boneca que come e faz xixi",
+        "imagem": "https://hasbro-new.akamaized.net/products/5F4F80FF5056900B10F5B2E8/144599ba8a2e8f8cb9b6e95bc5ec55d5/2f6ca9b71dc6b5dbc89ab79b04cf1c0a.webp",
+        "marca": "Hasbro",
+        "idade": "3+"
+      },
+      {
+        "id": 88,
+        "nome": "Jenga",
+        "preco": 99.9,
+        "descricao": "Jogo de habilidade e equilíbrio",
+        "imagem": "https://hasbro-new.akamaized.net/products/585A90565056900B109A8D3F/1e81c0e86bc4e9418fb93cf41d4df9b0/2be25cc1a4bd7dca31f3a5a4e4b0159d.webp",
+        "marca": "Hasbro",
+        "idade": "6+"
+      },
+      {
+        "id": 89,
+        "nome": "Patinete Infantil",
+        "preco": 199.9,
+        "descricao": "Patinete 3 rodas com luz",
+        "imagem": "https://m.media-amazon.com/images/I/71mxaAZjAYL._AC_SL1500_.jpg",
+        "marca": "Bandeirante",
+        "idade": "3+"
+      },
+      {
+        "id": 90,
+        "nome": "Massinha Play-Doh",
+        "preco": 89.9,
+        "descricao": "Kit com 12 cores",
+        "imagem": "https://hasbro-new.akamaized.net/products/5C33A8B9505690187018F5AF/afd64be7ae0c6a6b1b7d56a19a2b74e1/e0fa79e4fddd26f6ed3c7a20c1e7a53d.webp",
+        "marca": "Hasbro",
+        "idade": "2+"
+      }
+    ],
+    "videogames": [
+      {
+        "id": 91,
+        "nome": "PlayStation 5",
+        "preco": 3999.9,
+        "descricao": "Console Sony PS5 Digital",
+        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21",
+        "marca": "Sony",
+        "modelo": "Digital Edition"
+      },
+      {
+        "id": 92,
+        "nome": "Nintendo Switch OLED",
+        "preco": 2499.9,
+        "descricao": "Console Nintendo Switch OLED",
+        "imagem": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/site-design-update/hardware/switch/nintendo-switch-oled-model-white-set/gallery/image01",
+        "marca": "Nintendo",
+        "modelo": "OLED"
+      },
+      {
+        "id": 93,
+        "nome": "Xbox Series X",
+        "preco": 4299.9,
+        "descricao": "Console Microsoft Xbox Series X",
+        "imagem": "https://assets.xboxservices.com/assets/fb/d2/fbd2cb56-5c25-414d-9f46-e6a164cdf5be.png?n=XBX_A-BuyBoxBGImage01-D.png",
+        "marca": "Microsoft",
+        "modelo": "Series X"
+      },
+      {
+        "id": 94,
+        "nome": "Xbox Series S",
+        "preco": 2799.9,
+        "descricao": "Console Microsoft Xbox Series S Digital",
+        "imagem": "https://assets.xboxservices.com/assets/1e/bf/1ebf24cc-5c1a-4abb-a388-f761ab471e25.png?n=0202999-Hero-M.png",
+        "marca": "Microsoft",
+        "modelo": "Series S"
+      },
+      {
+        "id": 95,
+        "nome": "Nintendo Switch Lite",
+        "preco": 1899.9,
+        "descricao": "Console Nintendo Switch portátil",
+        "imagem": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/site-design-update/hardware/switch/nintendo-switch-lite-yellow/gallery/image01",
+        "marca": "Nintendo",
+        "modelo": "Lite"
+      },
+      {
+        "id": 96,
+        "nome": "PlayStation 4 Pro",
+        "preco": 2599.9,
+        "descricao": "Console Sony PS4 Pro 1TB",
+        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-console-01-en-26oct18?$1600px--t$",
+        "marca": "Sony",
+        "modelo": "Pro"
+      },
+      {
+        "id": 97,
+        "nome": "Controle DualSense",
+        "preco": 449.9,
+        "descricao": "Controle sem fio para PS5",
+        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-controller-product-thumbnail-01-en-14sep21",
+        "marca": "Sony",
+        "tipo": "Acessório"
+      },
+      {
+        "id": 98,
+        "nome": "Controle Xbox Series",
+        "preco": 499.9,
+        "descricao": "Controle sem fio para Xbox",
+        "imagem": "https://assets.xboxservices.com/assets/54/1e/541e9d07-9535-4853-898a-c353f9e3de1a.jpg?n=Accessories-Hub_Content-Placement-0_X-Wireless-Controller_788x444.jpg",
+        "marca": "Microsoft",
+        "tipo": "Acessório"
+      },
+      {
+        "id": 99,
+        "nome": "Joy-Con",
+        "preco": 599.9,
+        "descricao": "Par de controles Joy-Con para Nintendo Switch",
+        "imagem": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/accessories/switch-accessories-new/joy-con-pair-neon-red-neon-blue/carousel/joy-con-red-blue-pair",
+        "marca": "Nintendo",
+        "tipo": "Acessório"
+      },
+      {
+        "id": 100,
+        "nome": "Headset Gamer HyperX Cloud",
+        "preco": 499.9,
+        "descricao": "Headset com microfone para games",
+        "imagem": "https://images.kabum.com.br/produtos/fotos/81132/81132_1534533335_index_gg.jpg",
+        "marca": "HyperX",
+        "tipo": "Acessório"
+      },
+      {
+        "id": 101,
+        "nome": "FIFA 24",
+        "preco": 299.9,
+        "descricao": "Jogo de futebol para PS5/Xbox",
+        "imagem": "https://sm.ign.com/ign_br/screenshot/default/jogo-ea-sports-fc-24-ps5_n4xq.jpg",
+        "marca": "EA Sports",
+        "tipo": "Jogo"
+      },
+      {
+        "id": 102,
+        "nome": "The Legend of Zelda: Tears of the Kingdom",
+        "preco": 349.9,
+        "descricao": "Jogo exclusivo para Nintendo Switch",
+        "imagem": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000063714/276a412de6a6d671b7b7110cf201c372eaef0b682c628a0a0bd0cc9c69e5edf3",
+        "marca": "Nintendo",
+        "tipo": "Jogo"
+      },
+      {
+        "id": 103,
+        "nome": "SSD Expansão Xbox",
+        "preco": 1499.9,
+        "descricao": "SSD de expansão 1TB para Xbox Series",
+        "imagem": "https://m.media-amazon.com/images/I/61zXJsRv+ML._AC_SL1500_.jpg",
+        "marca": "Seagate",
+        "tipo": "Acessório"
+      },
+      {
+        "id": 104,
+        "nome": "Base de Carregamento DualSense",
+        "preco": 249.9,
+        "descricao": "Carregador para 2 controles PS5",
+        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-charging-station-accessory-image-block-01-en-21sep20?$1600px$",
+        "marca": "Sony",
+        "tipo": "Acessório"
+      },
+      {
+        "id": 105,
+        "nome": "Webcam Logitech StreamCam",
+        "preco": 899.9,
+        "descricao": "Webcam para streaming de jogos",
+        "imagem": "https://resource.logitech.com/content/dam/logitech/en/products/webcams/streamcam/gallery/streamcam-gallery-1.png",
+        "marca": "Logitech",
+        "tipo": "Acessório"
+      }
+    ]
+  }
+}
