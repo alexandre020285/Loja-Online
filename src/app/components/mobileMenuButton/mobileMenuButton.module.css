@@ -1,0 +1,23 @@
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    font-size: 1.8rem;
+    color: white;
+  }
+}

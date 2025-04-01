@@ -824,7 +824,7 @@
     ],
     "videogames": [
       {
-        "id": 91,
+        "id": "vg1",
         "nome": "PlayStation 5",
         "preco": 3999.9,
         "descricao": "Console Sony PS5 Digital",
@@ -833,7 +833,7 @@
         "modelo": "Digital Edition"
       },
       {
-        "id": 92,
+        "id": "vg2",
         "nome": "Nintendo Switch OLED",
         "preco": 2499.9,
         "descricao": "Console Nintendo Switch OLED",
@@ -842,121 +842,13 @@
         "modelo": "OLED"
       },
       {
-        "id": 93,
+        "id": "vg3",
         "nome": "Xbox Series X",
         "preco": 4299.9,
         "descricao": "Console Microsoft Xbox Series X",
         "imagem": "https://assets.xboxservices.com/assets/fb/d2/fbd2cb56-5c25-414d-9f46-e6a164cdf5be.png?n=XBX_A-BuyBoxBGImage01-D.png",
         "marca": "Microsoft",
         "modelo": "Series X"
-      },
-      {
-        "id": 94,
-        "nome": "Xbox Series S",
-        "preco": 2799.9,
-        "descricao": "Console Microsoft Xbox Series S Digital",
-        "imagem": "https://assets.xboxservices.com/assets/1e/bf/1ebf24cc-5c1a-4abb-a388-f761ab471e25.png?n=0202999-Hero-M.png",
-        "marca": "Microsoft",
-        "modelo": "Series S"
-      },
-      {
-        "id": 95,
-        "nome": "Nintendo Switch Lite",
-        "preco": 1899.9,
-        "descricao": "Console Nintendo Switch portátil",
-        "imagem": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/site-design-update/hardware/switch/nintendo-switch-lite-yellow/gallery/image01",
-        "marca": "Nintendo",
-        "modelo": "Lite"
-      },
-      {
-        "id": 96,
-        "nome": "PlayStation 4 Pro",
-        "preco": 2599.9,
-        "descricao": "Console Sony PS4 Pro 1TB",
-        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/ps4-pro-console-01-en-26oct18?$1600px--t$",
-        "marca": "Sony",
-        "modelo": "Pro"
-      },
-      {
-        "id": 97,
-        "nome": "Controle DualSense",
-        "preco": 449.9,
-        "descricao": "Controle sem fio para PS5",
-        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-controller-product-thumbnail-01-en-14sep21",
-        "marca": "Sony",
-        "tipo": "Acessório"
-      },
-      {
-        "id": 98,
-        "nome": "Controle Xbox Series",
-        "preco": 499.9,
-        "descricao": "Controle sem fio para Xbox",
-        "imagem": "https://assets.xboxservices.com/assets/54/1e/541e9d07-9535-4853-898a-c353f9e3de1a.jpg?n=Accessories-Hub_Content-Placement-0_X-Wireless-Controller_788x444.jpg",
-        "marca": "Microsoft",
-        "tipo": "Acessório"
-      },
-      {
-        "id": 99,
-        "nome": "Joy-Con",
-        "preco": 599.9,
-        "descricao": "Par de controles Joy-Con para Nintendo Switch",
-        "imagem": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/switch/accessories/switch-accessories-new/joy-con-pair-neon-red-neon-blue/carousel/joy-con-red-blue-pair",
-        "marca": "Nintendo",
-        "tipo": "Acessório"
-      },
-      {
-        "id": 100,
-        "nome": "Headset Gamer HyperX Cloud",
-        "preco": 499.9,
-        "descricao": "Headset com microfone para games",
-        "imagem": "https://images.kabum.com.br/produtos/fotos/81132/81132_1534533335_index_gg.jpg",
-        "marca": "HyperX",
-        "tipo": "Acessório"
-      },
-      {
-        "id": 101,
-        "nome": "FIFA 24",
-        "preco": 299.9,
-        "descricao": "Jogo de futebol para PS5/Xbox",
-        "imagem": "https://sm.ign.com/ign_br/screenshot/default/jogo-ea-sports-fc-24-ps5_n4xq.jpg",
-        "marca": "EA Sports",
-        "tipo": "Jogo"
-      },
-      {
-        "id": 102,
-        "nome": "The Legend of Zelda: Tears of the Kingdom",
-        "preco": 349.9,
-        "descricao": "Jogo exclusivo para Nintendo Switch",
-        "imagem": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000063714/276a412de6a6d671b7b7110cf201c372eaef0b682c628a0a0bd0cc9c69e5edf3",
-        "marca": "Nintendo",
-        "tipo": "Jogo"
-      },
-      {
-        "id": 103,
-        "nome": "SSD Expansão Xbox",
-        "preco": 1499.9,
-        "descricao": "SSD de expansão 1TB para Xbox Series",
-        "imagem": "https://m.media-amazon.com/images/I/61zXJsRv+ML._AC_SL1500_.jpg",
-        "marca": "Seagate",
-        "tipo": "Acessório"
-      },
-      {
-        "id": 104,
-        "nome": "Base de Carregamento DualSense",
-        "preco": 249.9,
-        "descricao": "Carregador para 2 controles PS5",
-        "imagem": "https://gmedia.playstation.com/is/image/SIEPDC/dualsense-charging-station-accessory-image-block-01-en-21sep20?$1600px$",
-        "marca": "Sony",
-        "tipo": "Acessório"
-      },
-      {
-        "id": 105,
-        "nome": "Webcam Logitech StreamCam",
-        "preco": 899.9,
-        "descricao": "Webcam para streaming de jogos",
-        "imagem": "https://resource.logitech.com/content/dam/logitech/en/products/webcams/streamcam/gallery/streamcam-gallery-1.png",
-        "marca": "Logitech",
-        "tipo": "Acessório"
       }
     ]
   }

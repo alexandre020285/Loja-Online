@@ -1,0 +1,229 @@
+/* Header - Container principal */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo para o logo e título */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a365d;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Estilos para os links de login/cadastro */
+.loginLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.loginLinks a {
+  text-decoration: none;
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.loginLinks a:hover {
+  color: #2b6cb0;
+  background-color: rgba(43, 108, 176, 0.05);
+}
+
+/* Barra de navegação/menu */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background-color: #2b6cb0;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Links do menu */
+.menuLinks {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.menuLinks a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.menuLinks a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.menuLinks a:hover:after {
+  width: 100%;
+}
+
+.menuLinks a:hover {
+  opacity: 0.9;
+}
+
+/* Estilo para o carrinho */
+.cartLinks {
+  display: flex;
+  align-items: center;
+}
+
+.cartLinks a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.cartLinks a:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cartLinks img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.25rem;
+  }
+
+  .menu {
+    padding: 0.75rem 1rem;
+    position: relative;
+    height: 2.5rem;
+  }
+
+  .menuLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    background-color: #2b6cb0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .menuLinks.menuOpen {
+    max-height: 500px;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .menuLinks a {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    text-align: left;
+  }
+
+  .menuLinks a:after {
+    display: none;
+  }
+
+  .cartLinks {
+    position: absolute;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .logo {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .loginLinks {
+    gap: 0.5rem;
+  }
+
+  .loginLinks a {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .menu {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .cartLinks {
+    right: 3.5rem;
+  }
+}
