@@ -53,15 +53,21 @@ const slides = [
 export default function PromotionalSlider() {
   const [current, setCurrent] = useState(0);
 
+  // Autoplay do slider
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    const timer = setInterval(
+      () => setCurrent((prev) => (prev + 1) % slides.length),
+      5000
+    );
     return () => clearInterval(timer);
   }, []);
 
+  // Navegação do slider
+  const goToSlide = (index: number) => setCurrent(index);
+
   return (
     <div className={styles.slider}>
+      {/* Slides */}
       <div
         className={styles.slides}
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -72,7 +78,7 @@ export default function PromotionalSlider() {
               src={slide.image}
               alt={slide.title}
               fill
-              sizes="1280px"
+              sizes="100vw"
               priority={index === 0}
               className={styles.image}
             />
@@ -84,29 +90,13 @@ export default function PromotionalSlider() {
         ))}
       </div>
 
-      <button
-        className={styles.prev}
-        onClick={() =>
-          setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
-        }
-      >
-        ←
-      </button>
-      <button
-        className={styles.next}
-        onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-      >
-        →
-      </button>
-
+      {/* Dots */}
       <div className={styles.dots}>
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`${styles.dot} ${
-              current === index ? styles.active : ""
-            }`}
-            onClick={() => setCurrent(index)}
+            className={current === index ? styles.active : ""}
+            onClick={() => goToSlide(index)}
           />
         ))}
       </div>
