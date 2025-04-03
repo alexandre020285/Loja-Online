@@ -30,10 +30,16 @@ export default function ProductList() {
         // Combinar todos os produtos em uma única lista
         const allProducts: Product[] = [];
 
-        Object.values(data).forEach((categoryProducts: any) => {
-          allProducts.push(...categoryProducts);
-        });
+        // Iterar sobre cada categoria e adicionar seus produtos
+        Object.entries(data).forEach(
+          ([category, categoryProducts]: [string, any]) => { 
+            if (Array.isArray(categoryProducts)) {
+              allProducts.push(...categoryProducts);
+            }
+          }
+        );
 
+        console.log("Total de produtos:", allProducts.length); // Para debug
         setProducts(allProducts);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Erro desconhecido");

@@ -25,7 +25,6 @@ export async function GET() {
             price: true,
             image: true,
           },
-          take: 4, // Limitar a 4 produtos por categoria
         });
       })
     );
