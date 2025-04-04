@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  background-color: #f8f8f8;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 /* Estilo para o logo e título */
@@ -15,28 +16,10 @@
   gap: 1rem;
 }
 
-.logo > div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.logo img {
-  height: 40px;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover img {
-  transform: scale(1.05);
-}
-
 .logo h1 {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a365d;
+  color: #2c5282;
   margin: 0;
-  letter-spacing: 0.5px;
 }
 
 .logo p {
@@ -48,22 +31,18 @@
 /* Estilos para os links de login/cadastro */
 .loginLinks {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .loginLinks a {
+  color: #2c5282;
   text-decoration: none;
-  color: #4a5568;
   font-weight: 500;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
+  transition: color 0.2s ease;
 }
 
 .loginLinks a:hover {
-  color: #2b6cb0;
-  background-color: rgba(43, 108, 176, 0.05);
+  color: #1a365d;
 }
 
 /* Barra de navegação/menu */
