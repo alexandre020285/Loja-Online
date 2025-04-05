@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "./contexts/CartContext";
 
 export const metadata: Metadata = {
   title: "Loja Online",
@@ -19,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.variable}>{children}</body>
+      <body className={inter.variable}>
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }

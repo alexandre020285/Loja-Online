@@ -1,17 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import styles from "./ProductList.module.css";
+import ProductCard from "../productCard/ProductCard";
 
 // Tipos
 type Product = {
-  id: number;
+  id: string;
   name: string;
-  price: any;
+  price: number;
   image: string;
   category: string;
   description: string;
+  stock: number;
 };
 
 type ProductListProps = {
@@ -29,23 +30,10 @@ const categoryNames: Record<string, string> = {
 };
 
 export default function ProductList({ selectedCategory }: ProductListProps) {
-  // Estados
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  // Funções auxiliares
-  const formatPrice = (price: any): string => {
-    if (!price) return "0.00";
-    return Number(price).toFixed(2);
-  };
-
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const target = e.target as HTMLImageElement;
-    target.src = "/placeholder.jpg";
-    target.alt = "Imagem não disponível";
-  };
 
   // Buscar produtos
   useEffect(() => {
@@ -61,7 +49,9 @@ export default function ProductList({ selectedCategory }: ProductListProps) {
 
         const allProducts = data.map((product) => ({
           ...product,
+          id: String(product.id), // Convertendo para string para compatibilidade
           category: product.category || "uncategorized",
+          stock: product.stock || 10, // Valor padrão para estoque
         }));
 
         setProducts(allProducts);
@@ -122,7 +112,6 @@ export default function ProductList({ selectedCategory }: ProductListProps) {
     );
   }
 
-  // Renderização principal
   return (
     <div className={styles.mainContainer}>
       <div className={styles.productsContainer}>
@@ -139,26 +128,10 @@ export default function ProductList({ selectedCategory }: ProductListProps) {
         ) : (
           <div className={styles.productsGrid}>
             {filteredProducts.map((product) => (
-              <div
+              <ProductCard
                 key={`${product.category}-${product.id}`}
-                className={styles.productCard}
-              >
-                <Link href={`/product/${product.id}`}>
-                  <div className={styles.imageContainer}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      onError={handleImageError}
-                      className={styles.productImage}
-                      loading="lazy"
-                    />
-                  </div>
-                  <h3>{product.name}</h3>
-                  <p className={styles.price}>
-                    R$ {formatPrice(product.price)}
-                  </p>
-                </Link>
-              </div>
+                product={product}
+              />
             ))}
           </div>
         )}

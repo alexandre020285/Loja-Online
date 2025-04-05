@@ -75,13 +75,14 @@ export default function PromotionalSlider() {
         className={styles.slides}
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <Link key={slide.id} href={slide.link} className={styles.slide}>
             <Image
               src={slide.image}
               alt={slide.title}
               fill
               className={styles.image}
+              priority={index === 0}
             />
             <div className={styles.content}>
               <h2>{slide.title}</h2>
