@@ -5,22 +5,24 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./MenuCategory.module.css";
 
-export type Category = {
-  id: string;
+// Lista de categorias disponíveis
+type Category = {
+  id: number;
   name: string;
-  icon: string;
+  value: string;
 };
 
-export const categories: Category[] = [
-  { id: "mensclothing", name: "Roupas Masculinas", icon: "👔" },
-  { id: "mensShoes", name: "Calçados Masculinos", icon: "👞" },
-  { id: "womensclothing", name: "Roupas Femininas", icon: "👗" },
-  { id: "womensShoes", name: "Calçados Femininos", icon: "👠" },
-  { id: "eletronics", name: "Eletrônicos", icon: "📱" },
-  { id: "toys", name: "Brinquedos", icon: "🎮" },
+const categories: Category[] = [
+  { id: 1, name: "Eletrônicos", value: "eletronics" },
+  { id: 2, name: "Roupas Masculinas", value: "mensclothing" },
+  { id: 3, name: "Calçados Masculinos", value: "mensshoes" },
+  { id: 4, name: "Brinquedos", value: "toys" },
+  { id: 5, name: "Roupas Femininas", value: "womensclothing" },
+  { id: 6, name: "Calçados Femininos", value: "womenshoes" },
 ];
 
-type MenuCategoryProps = {
+// Props do componente
+type Props = {
   selectedCategory: string | null;
   onSelectCategory: (category: string | null) => void;
 };
@@ -28,32 +30,28 @@ type MenuCategoryProps = {
 export default function MenuCategory({
   selectedCategory,
   onSelectCategory,
-}: MenuCategoryProps) {
+}: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Função para lidar com o clique em uma categoria
   const handleCategoryClick = (categoryId: string) => {
-    if (selectedCategory === categoryId) {
-      onSelectCategory(null);
-    } else {
-      onSelectCategory(categoryId);
-    }
+    const newCategory = selectedCategory === categoryId ? null : categoryId;
+    onSelectCategory(newCategory);
     setIsMenuOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <div className={styles.menuContainer}>
       <div className={styles.menuHeader}>
+        {/* Botão do menu mobile */}
         <button
           className={styles.mobileMenuButton}
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? "✕" : "☰"}
         </button>
+
+        {/* Lista de categorias */}
         <div
           className={`${styles.categoryList} ${isMenuOpen ? styles.open : ""}`}
         >
@@ -61,20 +59,31 @@ export default function MenuCategory({
             <button
               key={category.id}
               className={`${styles.categoryButton} ${
-                selectedCategory === category.id ? styles.active : ""
+                selectedCategory === category.value ? styles.active : ""
               }`}
-              onClick={() => handleCategoryClick(category.id)}
+              onClick={() => handleCategoryClick(category.value)}
             >
-              {category.icon} {category.name}
+              {category.name}
             </button>
           ))}
+
+          {/* Logo do site (visível apenas no mobile) */}
+          <Image
+            src="/img/logo.png"
+            alt="Logo do site"
+            width={120}
+            height={40}
+            className={styles.siteLogo}
+          />
         </div>
+
+        {/* Link do carrinho */}
         <Link href="/cart" className={styles.cartLink}>
           <Image
             src="/img/cart.png"
             alt="Carrinho"
-            width={24}
-            height={24}
+            width={20}
+            height={20}
             className={styles.cartIcon}
           />
           <span>Meu Carrinho</span>
