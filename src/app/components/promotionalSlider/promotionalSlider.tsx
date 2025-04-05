@@ -1,85 +1,86 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./promotionalSlider.module.css";
 
-const slides = [
+type Slide = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+};
+
+const slides: Slide[] = [
   {
     id: 1,
-    image: "/img/wc.jpg",
-    title: "Womens Clothing",
+    title: "Promoções de Roupas Femininas",
     description: "Roupas femininas com até 50% de desconto",
-    link: "/categoria/womens-clothing",
+    image: "/img/wc.jpg",
+    link: "#",
   },
   {
     id: 2,
+    title: "Promoções de Tênis Masculinos",
+    description: "Tênis masculinos com até 40% de desconto",
     image: "/img/ms.jpg",
-    title: "Mens Suits",
-    description: "Ternos masculinos com até 40% de desconto",
-    link: "/categoria/mens-suits",
+    link: "#",
   },
   {
     id: 3,
-    image: "/img/vi.jpg",
-    title: "Vintage Items",
+    title: "Promoções de Itens Vintage",
     description: "Itens vintage com até 30% de desconto",
-    link: "/categoria/vintage-items",
+    image: "/img/vi.jpg",
+    link: "#",
   },
   {
     id: 4,
-    image: "/img/mc.jpg",
-    title: "Mens Clothing",
+    title: "Promoções de Roupas Masculinas",
     description: "Roupas masculinas com até 45% de desconto",
-    link: "/categoria/mens-clothing",
+    image: "/img/mc.jpg",
+    link: "#",
   },
   {
     id: 5,
-    image: "/img/to.jpg",
-    title: "Top Offers",
+    title: "Ofertas Especiais",
     description: "Ofertas especiais com até 60% de desconto",
-    link: "/categoria/top-offers",
+    image: "/img/to.jpg",
+    link: "/#",
   },
   {
     id: 6,
-    image: "/img/ws.jpg",
-    title: "Womens Suits",
+    title: "Promoções de Tênis Femininos",
     description: "Ternos femininos com até 35% de desconto",
-    link: "/categoria/womens-suits",
+    image: "/img/ws.jpg",
+    link: "#",
   },
 ];
 
 export default function PromotionalSlider() {
-  const [current, setCurrent] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Autoplay do slider
   useEffect(() => {
-    const timer = setInterval(
-      () => setCurrent((prev) => (prev + 1) % slides.length),
-      5000
-    );
-    return () => clearInterval(timer);
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
 
-  // Navegação do slider
-  const goToSlide = (index: number) => setCurrent(index);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={styles.slider}>
-      {/* Slides */}
       <div
         className={styles.slides}
-        style={{ transform: `translateX(-${current * 100}%)` }}
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide, index) => (
+        {slides.map((slide) => (
           <Link key={slide.id} href={slide.link} className={styles.slide}>
             <Image
               src={slide.image}
               alt={slide.title}
               fill
-              sizes="100vw"
-              priority={index === 0}
               className={styles.image}
             />
             <div className={styles.content}>
@@ -90,13 +91,14 @@ export default function PromotionalSlider() {
         ))}
       </div>
 
-      {/* Dots */}
       <div className={styles.dots}>
         {slides.map((_, index) => (
           <button
             key={index}
-            className={current === index ? styles.active : ""}
-            onClick={() => goToSlide(index)}
+            className={`${styles.dot} ${
+              index === currentSlide ? styles.active : ""
+            }`}
+            onClick={() => setCurrentSlide(index)}
           />
         ))}
       </div>

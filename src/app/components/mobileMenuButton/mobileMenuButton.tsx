@@ -2,12 +2,12 @@
 
 import styles from "./mobileMenuButton.module.css";
 
-interface MobileMenuButtonProps {
+type Props = {
   isOpen: boolean;
   onClick: () => void;
-}
+};
 
-function MobileMenuButton({ isOpen, onClick }: MobileMenuButtonProps) {
+export default function MobileMenuButton({ isOpen, onClick }: Props) {
   return (
     <button
       className={styles.mobileMenuButton}
@@ -18,5 +18,3 @@ function MobileMenuButton({ isOpen, onClick }: MobileMenuButtonProps) {
     </button>
   );
 }
-
-export default MobileMenuButton;

@@ -5,6 +5,7 @@
   height: 300px;
   overflow: hidden;
   margin: 0 auto 2rem;
+  box-sizing: border-box;
 }
 
 .slides {
@@ -58,7 +59,7 @@
   z-index: 3;
 }
 
-.dots button {
+.dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -69,14 +70,20 @@
   transition: all 0.3s ease;
 }
 
-.dots button.active {
+.dot.active {
   background: white;
   transform: scale(1.2);
 }
 
-.dots button:hover {
+.dot:hover {
   background: rgba(255, 255, 255, 0.5);
   transform: scale(1.1);
+}
+
+@media (max-width: 1280px) {
+  .slider {
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 768px) {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
 
-function Header() {
+export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
@@ -21,5 +21,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

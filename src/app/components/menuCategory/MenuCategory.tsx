@@ -35,8 +35,7 @@ export default function MenuCategory({
 
   // Função para lidar com o clique em uma categoria
   const handleCategoryClick = (categoryId: string) => {
-    const newCategory = selectedCategory === categoryId ? null : categoryId;
-    onSelectCategory(newCategory);
+    onSelectCategory(selectedCategory === categoryId ? null : categoryId);
     setIsMenuOpen(false);
   };
 
