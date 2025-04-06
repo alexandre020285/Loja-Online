@@ -70,3 +70,23 @@
   margin: 20px auto;
   max-width: 600px;
 }
+
+.custom-toast-confirm {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}
+
+/* Ajustando o container do toast */
+.Toastify__toast-container {
+  z-index: 9999;
+}
+
+/* Estilo para o overlay quando o toast de confirmação estiver visível */
+.Toastify__toast-container--top-center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}

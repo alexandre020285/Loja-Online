@@ -12,10 +12,10 @@ interface CartItem {
 
 interface CartContextType {
   items: CartItem[];
-  isOpen: boolean;
   addToCart: (item: Omit<CartItem, "quantity">) => void;
-  removeItem: (id: string) => void;
+  removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
+  isOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
 }
@@ -27,25 +27,25 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const addToCart = (item: Omit<CartItem, "quantity">) => {
-    setItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
+    setItems((currentItems) => {
+      const existingItem = currentItems.find((i) => i.id === item.id);
       if (existingItem) {
-        return prevItems.map((i) =>
+        return currentItems.map((i) =>
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
-      return [...prevItems, { ...item, quantity: 1 }];
+      return [...currentItems, { ...item, quantity: 1 }];
     });
   };
 
-  const removeItem = (id: string) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  const removeFromCart = (id: string) => {
+    setItems((currentItems) => currentItems.filter((item) => item.id !== id));
   };
 
   const updateQuantity = (id: string, quantity: number) => {
     if (quantity < 1) return;
-    setItems((prevItems) =>
-      prevItems.map((item) =>
+    setItems((currentItems) =>
+      currentItems.map((item) =>
         item.id === id ? { ...item, quantity } : item
       )
     );
@@ -58,10 +58,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     <CartContext.Provider
       value={{
         items,
-        isOpen,
         addToCart,
-        removeItem,
+        removeFromCart,
         updateQuantity,
+        isOpen,
         openCart,
         closeCart,
       }}

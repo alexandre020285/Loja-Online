@@ -34,15 +34,6 @@ export default function ProductCard({ product }: ProductCardProps) {
     }).format(Number(price));
   };
 
-  const handleAddToCart = () => {
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: Number(product.price),
-      image: product.image,
-    });
-  };
-
   return (
     <>
       <div className={styles.card} onClick={() => setIsModalOpen(true)}>
@@ -62,11 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {isModalOpen && (
-        <ProductModal
-          product={product}
-          onClose={() => setIsModalOpen(false)}
-          onAddToCart={handleAddToCart}
-        />
+        <ProductModal product={product} onClose={() => setIsModalOpen(false)} />
       )}
     </>
   );

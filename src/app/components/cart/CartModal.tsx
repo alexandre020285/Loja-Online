@@ -1,37 +1,51 @@
 "use client";
 
 import { useCart } from "@/app/contexts/CartContext";
-import Link from "next/link";
 import styles from "./cartModal.module.css";
+import Link from "next/link";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CartModal() {
-  const { isOpen, closeCart, items, removeItem, updateQuantity } = useCart();
+  const { isOpen, closeCart, items, removeFromCart, updateQuantity } =
+    useCart();
 
   const total = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  const handleRemoveItem = (id: string, name: string) => {
+    removeFromCart(id);
+    toast.success(`${name} removido do carrinho!`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   if (!isOpen) return null;
 
   return (
     <div className={styles.modalOverlay} onClick={closeCart}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={closeCart}>
-          ×
-        </button>
-        <h2 className={styles.title}>Carrinho de Compras</h2>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Carrinho</h2>
+          <button className={styles.closeButton} onClick={closeCart}>
+            ×
+          </button>
+        </div>
 
         {items.length === 0 ? (
           <div className={styles.emptyCart}>
             <p>Seu carrinho está vazio</p>
-            <Link
-              href="/"
-              className={styles.continueShopping}
-              onClick={closeCart}
-            >
-              Continuar Comprando
-            </Link>
+            <button className={styles.backButton} onClick={closeCart}>
+              Voltar para a Loja
+            </button>
           </div>
         ) : (
           <>
@@ -48,8 +62,10 @@ export default function CartModal() {
                     />
                   </div>
                   <div className={styles.details}>
-                    <h3>{item.name}</h3>
-                    <p className={styles.price}>R$ {item.price.toFixed(2)}</p>
+                    <h3 className={styles.itemName}>{item.name}</h3>
+                    <p className={styles.itemPrice}>
+                      R$ {item.price.toFixed(2)}
+                    </p>
                     <div className={styles.quantity}>
                       <button
                         onClick={() =>
@@ -71,25 +87,27 @@ export default function CartModal() {
                   </div>
                   <button
                     className={styles.removeButton}
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => handleRemoveItem(item.id, item.name)}
                   >
-                    Remover
+                    ×
                   </button>
                 </div>
               ))}
             </div>
-            <div className={styles.summary}>
+
+            <div className={styles.footer}>
               <div className={styles.total}>
                 <span>Total:</span>
                 <span>R$ {total.toFixed(2)}</span>
               </div>
-              <Link
-                href="/checkout"
-                className={styles.checkoutButton}
-                onClick={closeCart}
-              >
-                Finalizar Compra
-              </Link>
+              <div className={styles.actions}>
+                <button className={styles.backButton} onClick={closeCart}>
+                  Continuar Comprando
+                </button>
+                <Link href="/cart" className={styles.checkoutButton}>
+                  Finalizar Compra
+                </Link>
+              </div>
             </div>
           </>
         )}

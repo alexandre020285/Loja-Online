@@ -14,14 +14,9 @@ interface ProductModalProps {
     description: string;
   };
   onClose: () => void;
-  onAddToCart: () => void;
 }
 
-export default function ProductModal({
-  product,
-  onClose,
-  onAddToCart,
-}: ProductModalProps) {
+export default function ProductModal({ product, onClose }: ProductModalProps) {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
@@ -33,14 +28,13 @@ export default function ProductModal({
     });
     toast.success("Produto adicionado ao carrinho!", {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
     });
-    onAddToCart();
   };
 
   return (
