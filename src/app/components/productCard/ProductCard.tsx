@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./productCard.module.css";
@@ -8,7 +10,7 @@ interface Product {
   id: string;
   name: string;
   description: string;
-  price: number;
+  price: number | string;
   image: string;
   category: string;
   stock: number;
@@ -23,13 +25,22 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
 
-  const formatPrice = (price: number) => {
+  const formatPrice = (price: number | string) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
-    }).format(price);
+    }).format(Number(price));
+  };
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: Number(product.price),
+      image: product.image,
+    });
   };
 
   return (
@@ -50,12 +61,13 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      <ProductModal
-        product={product}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onAddToCart={addItem}
-      />
+      {isModalOpen && (
+        <ProductModal
+          product={product}
+          onClose={() => setIsModalOpen(false)}
+          onAddToCart={handleAddToCart}
+        />
+      )}
     </>
   );
 }

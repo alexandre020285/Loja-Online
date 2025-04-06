@@ -1,118 +1,73 @@
-import { useState } from "react";
-import Image from "next/image";
-import styles from "./productModal.module.css";
+"use client";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  stock: number;
-  brand?: string;
-  size?: string;
-  color?: string;
-}
+import { useCart } from "@/app/contexts/CartContext";
+import styles from "./productModal.module.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface ProductModalProps {
-  product: Product;
-  isOpen: boolean;
+  product: {
+    id: string;
+    name: string;
+    price: number | string;
+    image: string;
+    description: string;
+  };
   onClose: () => void;
-  onAddToCart: (product: Product, quantity: number) => void;
+  onAddToCart: () => void;
 }
 
 export default function ProductModal({
   product,
-  isOpen,
   onClose,
   onAddToCart,
 }: ProductModalProps) {
-  const [quantity, setQuantity] = useState(1);
-
-  if (!isOpen) return null;
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    onAddToCart(product, quantity);
-    onClose();
-  };
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(price);
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: Number(product.price),
+      image: product.image,
+    });
+    toast.success("Produto adicionado ao carrinho!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    onAddToCart();
   };
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
+    <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={onClose}>
           ×
         </button>
-
         <div className={styles.content}>
           <div className={styles.imageContainer}>
-            <Image
+            <img
               src={product.image}
               alt={product.name}
+              className={styles.image}
               width={400}
               height={400}
-              className={styles.image}
             />
           </div>
-
           <div className={styles.details}>
-            <h2>{product.name}</h2>
-            <p className={styles.description}>{product.description}</p>
-            <p className={styles.price}>{formatPrice(product.price)}</p>
-
-            {product.brand && (
-              <p className={styles.info}>
-                <strong>Marca:</strong> {product.brand}
-              </p>
-            )}
-            {product.size && (
-              <p className={styles.info}>
-                <strong>Tamanho:</strong> {product.size}
-              </p>
-            )}
-            {product.color && (
-              <p className={styles.info}>
-                <strong>Cor:</strong> {product.color}
-              </p>
-            )}
-            <p className={styles.stock}>
-              <strong>Estoque:</strong> {product.stock} unidades
+            <h2 className={styles.title}>{product.name}</h2>
+            <p className={styles.price}>
+              R$ {Number(product.price).toFixed(2)}
             </p>
-
-            <div className={styles.actions}>
-              <div className={styles.quantity}>
-                <button
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  disabled={quantity <= 1}
-                >
-                  -
-                </button>
-                <span>{quantity}</span>
-                <button
-                  onClick={() =>
-                    setQuantity((q) => Math.min(product.stock, q + 1))
-                  }
-                  disabled={quantity >= product.stock}
-                >
-                  +
-                </button>
-              </div>
-
-              <button
-                className={styles.addToCart}
-                onClick={handleAddToCart}
-                disabled={product.stock === 0}
-              >
-                Adicionar ao Carrinho
-              </button>
-            </div>
+            <p className={styles.description}>{product.description}</p>
+            <button className={styles.addButton} onClick={handleAddToCart}>
+              Adicionar ao Carrinho
+            </button>
           </div>
         </div>
       </div>

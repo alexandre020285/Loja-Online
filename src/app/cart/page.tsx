@@ -4,7 +4,7 @@ import { useCart } from "@/app/contexts/CartContext";
 import Link from "next/link";
 import styles from "./cart.module.css";
 
-export default function Cart() {
+export default function CartPage() {
   const { items, removeItem, updateQuantity } = useCart();
 
   const total = items.reduce(
