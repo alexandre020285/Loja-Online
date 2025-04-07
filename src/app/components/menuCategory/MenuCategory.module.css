@@ -1,8 +1,8 @@
 .menuContainer {
   background-color: #2b6cb0;
   color: white;
-  padding: 0.75rem 2rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menuHeader {
@@ -23,46 +23,30 @@
   padding: 0.5rem;
 }
 
-.categoryList {
+.menuContent {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .categoryButton {
-  background: none;
-  border: none;
   color: white;
-  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s;
   font-weight: 500;
-  padding: 0.5rem 0;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s ease;
 }
 
-.categoryButton:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-
-.categoryButton:hover:after {
-  width: 100%;
+.categoryButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .categoryButton.active {
-  color: #ffd700;
-}
-
-.categoryButton.active:after {
-  width: 100%;
-  background-color: #ffd700;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .siteLogo {
@@ -79,38 +63,15 @@
     display: block;
   }
 
-  .categoryList {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+  .menuContent {
     flex-direction: column;
-    gap: 0;
-    width: 100%;
-    background-color: #2b6cb0;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .categoryList.open {
-    max-height: 500px;
-    padding: 0.5rem 1rem 1rem;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .categoryButton {
-    display: block;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
-    text-align: left;
-  }
-
-  .categoryButton:after {
-    display: none;
+    text-align: center;
   }
 
   .siteLogo {
