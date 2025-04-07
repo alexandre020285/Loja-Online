@@ -1,18 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import styles from "./MenuCategory.module.css";
 
 // Lista de categorias disponíveis
-type Category = {
-  id: number;
-  name: string;
-  value: string;
-};
-
-const categories: Category[] = [
+const categories = [
   { id: 1, name: "Eletrônicos", value: "eletronics" },
   { id: 2, name: "Roupas Masculinas", value: "mensclothing" },
   { id: 3, name: "Calçados Masculinos", value: "mensshoes" },
@@ -22,22 +15,16 @@ const categories: Category[] = [
 ];
 
 // Props do componente
-type Props = {
+interface MenuCategoryProps {
   selectedCategory: string | null;
   onSelectCategory: (category: string | null) => void;
-};
+}
 
 export default function MenuCategory({
   selectedCategory,
   onSelectCategory,
-}: Props) {
+}: MenuCategoryProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Função para lidar com o clique em uma categoria
-  const handleCategoryClick = (categoryId: string) => {
-    onSelectCategory(selectedCategory === categoryId ? null : categoryId);
-    setIsMenuOpen(false);
-  };
 
   return (
     <div className={styles.menuContainer}>
@@ -46,6 +33,7 @@ export default function MenuCategory({
         <button
           className={styles.mobileMenuButton}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
           {isMenuOpen ? "✕" : "☰"}
         </button>
@@ -60,7 +48,12 @@ export default function MenuCategory({
               className={`${styles.categoryButton} ${
                 selectedCategory === category.value ? styles.active : ""
               }`}
-              onClick={() => handleCategoryClick(category.value)}
+              onClick={() => {
+                onSelectCategory(
+                  selectedCategory === category.value ? null : category.value
+                );
+                setIsMenuOpen(false);
+              }}
             >
               {category.name}
             </button>
@@ -75,18 +68,6 @@ export default function MenuCategory({
             className={styles.siteLogo}
           />
         </div>
-
-        {/* Link do carrinho */}
-        <Link href="/cart" className={styles.cartLink}>
-          <Image
-            src="/img/cart.png"
-            alt="Carrinho"
-            width={20}
-            height={20}
-            className={styles.cartIcon}
-          />
-          <span>Meu Carrinho</span>
-        </Link>
       </div>
     </div>
   );

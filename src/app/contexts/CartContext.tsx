@@ -1,69 +1,81 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 interface CartItem {
   id: string;
   name: string;
   price: number;
-  image: string;
   quantity: number;
 }
 
 interface CartContextType {
-  items: CartItem[];
+  cart: CartItem[];
   addToCart: (item: Omit<CartItem, "quantity">) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
-  isOpen: boolean;
-  openCart: () => void;
-  closeCart: () => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
+export function CartProvider({ children }: { children: React.ReactNode }) {
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, mounted]);
 
   const addToCart = (item: Omit<CartItem, "quantity">) => {
-    setItems((currentItems) => {
-      const existingItem = currentItems.find((i) => i.id === item.id);
+    setCart((currentCart) => {
+      const existingItem = currentCart.find((i) => i.id === item.id);
       if (existingItem) {
-        return currentItems.map((i) =>
+        return currentCart.map((i) =>
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
-      return [...currentItems, { ...item, quantity: 1 }];
+      return [...currentCart, { ...item, quantity: 1 }];
     });
   };
 
   const removeFromCart = (id: string) => {
-    setItems((currentItems) => currentItems.filter((item) => item.id !== id));
+    setCart((currentCart) => currentCart.filter((item) => item.id !== id));
   };
 
   const updateQuantity = (id: string, quantity: number) => {
     if (quantity < 1) return;
-    setItems((currentItems) =>
-      currentItems.map((item) =>
-        item.id === id ? { ...item, quantity } : item
-      )
+    setCart((currentCart) =>
+      currentCart.map((item) => (item.id === id ? { ...item, quantity } : item))
     );
   };
 
-  const openCart = () => setIsOpen(true);
-  const closeCart = () => setIsOpen(false);
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <CartContext.Provider
       value={{
-        items,
+        cart,
         addToCart,
         removeFromCart,
         updateQuantity,
-        isOpen,
-        openCart,
-        closeCart,
+        clearCart,
       }}
     >
       {children}

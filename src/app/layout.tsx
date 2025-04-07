@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./contexts/CartContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CartModal from "./components/cart/CartModal";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Loja Online",
-  description: "Sua loja online favorita",
+  description: "A melhor loja online para você",
 };
 
 export default function RootLayout({
@@ -20,12 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
-        <CartProvider>
-          {children}
-          <CartModal />
-          <ToastContainer />
-        </CartProvider>
+      <body>
+        <AuthProvider>
+          <CartProvider>
+            {children}
+            <CartModal />
+            <ToastContainer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

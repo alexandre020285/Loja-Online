@@ -1,173 +1,100 @@
 "use client";
 
-import { useCart } from "@/app/contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 import Link from "next/link";
 import styles from "./cart.module.css";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function CartPage() {
-  const { items, removeFromCart, updateQuantity } = useCart();
+  const { cart, removeFromCart, updateQuantity } = useCart();
 
-  const total = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const handleRemoveItem = (id: string, name: string) => {
-    toast.warn(
-      <div style={{ textAlign: "center" }}>
-        <p style={{ fontSize: "16px", marginBottom: "20px", color: "#333" }}>
-          Tem certeza que deseja remover
-          <br />
-          <strong style={{ color: "#ff4757" }}>{name}</strong>
-          <br />
-          do carrinho?
-        </p>
-        <div style={{ display: "flex", justifyContent: "center", gap: "15px" }}>
-          <button
-            onClick={() => toast.dismiss()}
-            style={{
-              padding: "10px 24px",
-              background: "#f5f5f5",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              color: "#333",
-              fontSize: "14px",
-              fontWeight: "500",
-              transition: "all 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#e8e8e8")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#f5f5f5")}
-          >
-            Cancelar
-          </button>
-          <button
-            onClick={() => {
-              removeFromCart(id);
-              toast.dismiss();
-              toast.success(`${name} foi removido do carrinho!`, {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
-            }}
-            style={{
-              padding: "10px 24px",
-              background: "#ff4757",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              color: "white",
-              fontSize: "14px",
-              fontWeight: "500",
-              transition: "all 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#ff6b81")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#ff4757")}
-          >
-            Remover
-          </button>
-        </div>
-      </div>,
-      {
-        position: "top-center",
-        autoClose: false,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "light",
-        className: "custom-toast-confirm",
-        style: {
-          background: "white",
-          padding: "25px",
-          borderRadius: "8px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-          minWidth: "320px",
-          position: "fixed",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-          marginTop: "0",
-        },
-      }
-    );
+  const handleRemoveItem = (id: string) => {
+    removeFromCart(id);
   };
 
-  if (items.length === 0) {
-    return (
-      <div className={styles.cart}>
-        <h1>Carrinho de Compras</h1>
+  const handleUpdateQuantity = (id: string, quantity: number) => {
+    if (quantity < 1) return;
+    updateQuantity(id, quantity);
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1>Meu Carrinho</h1>
+        <Link href="/" className={styles.backButton}>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 12H5M5 12L12 19M5 12L12 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Voltar ao Início
+        </Link>
+      </div>
+
+      {cart.length === 0 ? (
         <div className={styles.emptyCart}>
           <p>Seu carrinho está vazio</p>
           <Link href="/" className={styles.continueShopping}>
             Continuar Comprando
           </Link>
         </div>
-      </div>
-    );
-  }
+      ) : (
+        <>
+          <ul className={styles.cartItems}>
+            {cart.map((item) => (
+              <li key={item.id} className={styles.cartItem}>
+                <div className={styles.itemInfo}>
+                  <h3>{item.name}</h3>
+                  <p>R$ {item.price.toFixed(2)}</p>
+                </div>
+                <div className={styles.itemActions}>
+                  <button
+                    onClick={() =>
+                      handleUpdateQuantity(item.id, item.quantity - 1)
+                    }
+                    disabled={item.quantity <= 1}
+                  >
+                    -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    onClick={() =>
+                      handleUpdateQuantity(item.id, item.quantity + 1)
+                    }
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => handleRemoveItem(item.id)}
+                    className={styles.removeButton}
+                  >
+                    Remover
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
 
-  return (
-    <div className={styles.cart}>
-      <h1>Carrinho de Compras</h1>
-      <div className={styles.items}>
-        {items.map((item) => (
-          <div key={item.id} className={styles.item}>
-            <div className={styles.imageContainer}>
-              <img
-                src={item.image}
-                alt={item.name}
-                className={styles.image}
-                width={100}
-                height={100}
-              />
+          <div className={styles.cartFooter}>
+            <div className={styles.total}>
+              <span>Total:</span>
+              <span>R$ {total.toFixed(2)}</span>
             </div>
-            <div className={styles.details}>
-              <h3>{item.name}</h3>
-              <p className={styles.price}>R$ {item.price.toFixed(2)}</p>
-              <div className={styles.quantity}>
-                <button
-                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                  disabled={item.quantity <= 1}
-                >
-                  -
-                </button>
-                <span>{item.quantity}</span>
-                <button
-                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            <button
-              className={styles.removeButton}
-              onClick={() => handleRemoveItem(item.id, item.name)}
-            >
-              Remover
-            </button>
+            <button className={styles.checkoutButton}>Finalizar Compra</button>
           </div>
-        ))}
-      </div>
-      <div className={styles.summary}>
-        <h2>Resumo do Pedido</h2>
-        <div className={styles.total}>
-          <span>Total:</span>
-          <span>R$ {total.toFixed(2)}</span>
-        </div>
-        <Link href="/checkout" className={styles.checkoutButton}>
-          Finalizar Compra
-        </Link>
-      </div>
+        </>
+      )}
     </div>
   );
 }
