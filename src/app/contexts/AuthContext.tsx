@@ -1,148 +1,78 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  address: {
-    cep: string;
-    street: string;
-    number: string;
-    complement: string;
-    neighborhood: string;
-    city: string;
-    state: string;
-  };
-}
+import { authService, UserData } from "../services/authService";
+import { toast } from "react-toastify";
 
 interface AuthContextType {
-  currentUser: User | null;
-  users: User[];
-  register: (user: Omit<User, "id">) => void;
-  login: (email: string, password: string) => User | null;
+  currentUser: {
+    id: string;
+    name: string;
+    email: string;
+  } | null;
+  login: (email: string, password: string) => Promise<void>;
+  register: (userData: UserData) => Promise<void>;
   logout: () => void;
-  deleteUser: (id: string) => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+  currentUser: null,
+  login: async () => {},
+  register: async () => {},
+  logout: () => {},
+});
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [users, setUsers] = useState<User[]>([]);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [mounted, setMounted] = useState(false);
+  const [currentUser, setCurrentUser] =
+    useState<AuthContextType["currentUser"]>(null);
 
-  // Carregar dados do localStorage na montagem inicial
   useEffect(() => {
-    try {
-      const storedUsers = localStorage.getItem("users");
-      const storedCurrentUser = localStorage.getItem("currentUser");
-
-      if (storedUsers) {
-        setUsers(JSON.parse(storedUsers));
-      }
-
-      if (storedCurrentUser) {
-        setCurrentUser(JSON.parse(storedCurrentUser));
-      }
-    } catch (error) {
-      console.error("Erro ao carregar dados do localStorage:", error);
-    } finally {
-      setMounted(true);
+    // Verifica se há um usuário logado no localStorage
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
     }
   }, []);
 
-  // Salvar usuários no localStorage quando mudar
-  useEffect(() => {
-    if (mounted) {
-      try {
-        localStorage.setItem("users", JSON.stringify(users));
-      } catch (error) {
-        console.error("Erro ao salvar usuários no localStorage:", error);
-      }
+  const login = async (email: string, password: string) => {
+    try {
+      const user = await authService.login(email, password);
+      setCurrentUser(user);
+      localStorage.setItem("user", JSON.stringify(user));
+      toast.success("Login realizado com sucesso!");
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "Erro ao fazer login"
+      );
+      throw error;
     }
-  }, [users, mounted]);
-
-  // Salvar usuário atual no localStorage quando mudar
-  useEffect(() => {
-    if (mounted) {
-      try {
-        if (currentUser) {
-          localStorage.setItem("currentUser", JSON.stringify(currentUser));
-          console.log("Usuário atual salvo:", currentUser);
-        } else {
-          localStorage.removeItem("currentUser");
-          console.log("Usuário atual removido");
-        }
-      } catch (error) {
-        console.error("Erro ao salvar usuário atual no localStorage:", error);
-      }
-    }
-  }, [currentUser, mounted]);
-
-  const register = (userData: Omit<User, "id">) => {
-    const newUser = {
-      ...userData,
-      id: Math.random().toString(36).substr(2, 9),
-    };
-    setUsers((prevUsers) => [...prevUsers, newUser]);
   };
 
-  const login = (email: string, password: string) => {
-    console.log("Tentando fazer login com:", email);
-    console.log("Usuários disponíveis:", users);
-
-    const user = users.find(
-      (u) => u.email === email && u.password === password
-    );
-
-    if (user) {
-      console.log("Usuário encontrado, fazendo login:", user);
+  const register = async (userData: UserData) => {
+    try {
+      const user = await authService.register(userData);
       setCurrentUser(user);
-      return user;
+      localStorage.setItem("user", JSON.stringify(user));
+      toast.success("Cadastro realizado com sucesso!");
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "Erro ao fazer cadastro"
+      );
+      throw error;
     }
-
-    console.log("Usuário não encontrado");
-    return null;
   };
 
   const logout = () => {
     setCurrentUser(null);
+    localStorage.removeItem("user");
+    toast.success("Logout realizado com sucesso!");
   };
-
-  const deleteUser = (id: string) => {
-    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-    if (currentUser?.id === id) {
-      setCurrentUser(null);
-    }
-  };
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
-    <AuthContext.Provider
-      value={{
-        currentUser,
-        users,
-        register,
-        login,
-        logout,
-        deleteUser,
-      }}
-    >
+    <AuthContext.Provider value={{ currentUser, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
-}
+export const useAuth = () => useContext(AuthContext);

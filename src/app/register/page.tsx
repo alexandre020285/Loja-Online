@@ -3,31 +3,48 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Link from "next/link";
-import styles from "./login.module.css";
+import styles from "./register.module.css";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth();
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { register } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      alert("As senhas não coincidem");
+      return;
+    }
+
     try {
-      await login(email, password);
+      await register({ name, email, password });
       router.push("/");
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
+      console.error("Erro ao registrar:", error);
     }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <h1>Login</h1>
+        <h1>Criar Conta</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="name">Nome</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
           <div className={styles.formGroup}>
             <label htmlFor="email">Email</label>
             <input
@@ -48,12 +65,22 @@ export default function LoginPage() {
               required
             />
           </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="confirmPassword">Confirmar Senha</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
           <button type="submit" className={styles.submitButton}>
-            Entrar
+            Criar Conta
           </button>
         </form>
-        <p className={styles.registerLink}>
-          Não tem uma conta? <Link href="/register">Cadastre-se</Link>
+        <p className={styles.loginLink}>
+          Já tem uma conta? <Link href="/login">Faça login</Link>
         </p>
       </div>
     </div>

@@ -1,0 +1,17 @@
+-- AlterTable
+ALTER TABLE "eletronics" ALTER COLUMN "image" SET DATA TYPE VARCHAR(1000);
+
+-- AlterTable
+ALTER TABLE "mensclothing" ALTER COLUMN "image" SET DATA TYPE VARCHAR(1000);
+
+-- AlterTable
+ALTER TABLE "mensshoes" ALTER COLUMN "image" SET DATA TYPE VARCHAR(1000);
+
+-- AlterTable
+ALTER TABLE "toys" ALTER COLUMN "image" SET DATA TYPE VARCHAR(1000);
+
+-- AlterTable
+ALTER TABLE "womensclothing" ALTER COLUMN "image" SET DATA TYPE VARCHAR(1000);
+
+-- AlterTable
+ALTER TABLE "womenshoes" ALTER COLUMN "image" SET DATA TYPE VARCHAR(1000);

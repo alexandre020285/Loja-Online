@@ -1,54 +1,71 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import styles from "./productCard.module.css";
+import styles from "./ProductCard.module.css";
 import ProductModal from "../productModal/ProductModal";
 import { useCart } from "@/app/contexts/CartContext";
+import { toast } from "react-toastify";
 
 interface Product {
   id: string;
   name: string;
   description: string;
-  price: number | string;
+  price: number;
   image: string;
   category: string;
   stock: number;
   brand?: string;
-  size?: string;
-  color?: string;
+  sizes?: string[];
 }
 
 interface ProductCardProps {
   product: Product;
+  onAddToCart?: () => void;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  onAddToCart,
+}: ProductCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addToCart } = useCart();
 
-  const formatPrice = (price: number | string) => {
+  const formatPrice = (price: number) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
-    }).format(Number(price));
+    }).format(price);
+  };
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
+    toast.success(`${product.name} adicionado ao carrinho!`);
   };
 
   return (
     <>
       <div className={styles.card} onClick={() => setIsModalOpen(true)}>
         <div className={styles.imageContainer}>
-          <Image
+          <img
             src={product.image}
             alt={product.name}
-            width={200}
-            height={200}
             className={styles.image}
+            loading="lazy"
           />
         </div>
         <div className={styles.content}>
           <h3 className={styles.title}>{product.name}</h3>
+          <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{formatPrice(product.price)}</p>
+          <button onClick={handleAddToCart} className={styles.button}>
+            Adicionar ao Carrinho
+          </button>
         </div>
       </div>
 

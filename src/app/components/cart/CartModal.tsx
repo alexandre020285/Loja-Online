@@ -32,9 +32,25 @@ export default function CartModal() {
         <div className={styles.modalContent}>
           <div className={styles.modalHeader}>
             <h2>Carrinho de Compras</h2>
-            <button onClick={closeCart} className={styles.closeButton} aria-label="Fechar carrinho">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <button
+              onClick={closeCart}
+              className={styles.closeButton}
+              aria-label="Fechar carrinho"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
@@ -45,6 +61,9 @@ export default function CartModal() {
               <ul className={styles.cartItems}>
                 {cart.map((item) => (
                   <li key={item.id} className={styles.cartItem}>
+                    <div className={styles.itemImage}>
+                      <img src={item.image} alt={item.name} />
+                    </div>
                     <div className={styles.itemInfo}>
                       <h3>{item.name}</h3>
                       <p>R$ {item.price.toFixed(2)}</p>

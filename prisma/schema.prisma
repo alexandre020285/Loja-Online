@@ -7,12 +7,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model users {
+  id        String   @id
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
 model eletronics {
-  id          Int     @id(map: "videogame_pkey")
+  id          Int     @id
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
   description String
-  image       String  @db.VarChar(255)
+  image       String  @db.VarChar(1000)
   brand       String  @db.VarChar(100)
   sizes       String  @db.VarChar(255)
 }
@@ -22,7 +31,7 @@ model mensclothing {
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
   description String
-  image       String  @db.VarChar(255)
+  image       String  @db.VarChar(1000)
   brand       String  @db.VarChar(100)
   sizes       String  @db.VarChar(255)
 }
@@ -32,7 +41,7 @@ model mensshoes {
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
   description String
-  image       String  @db.VarChar(255)
+  image       String  @db.VarChar(1000)
   brand       String  @db.VarChar(100)
   sizes       String  @db.VarChar(255)
 }
@@ -42,7 +51,7 @@ model toys {
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
   description String
-  image       String  @db.VarChar(255)
+  image       String  @db.VarChar(1000)
   brand       String  @db.VarChar(100)
   sizes       String  @db.VarChar(255)
 }
@@ -52,7 +61,7 @@ model womensclothing {
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
   description String
-  image       String  @db.VarChar(255)
+  image       String  @db.VarChar(1000)
   brand       String  @db.VarChar(100)
   sizes       String  @db.VarChar(255)
 }
@@ -62,7 +71,7 @@ model womenshoes {
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
   description String
-  image       String  @db.VarChar(255)
+  image       String  @db.VarChar(1000)
   brand       String  @db.VarChar(100)
   sizes       String  @db.VarChar(255)
 }

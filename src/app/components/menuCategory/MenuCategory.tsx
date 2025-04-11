@@ -1,43 +1,46 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./MenuCategory.module.css";
 
-interface MenuCategoryProps {
-  categories?: string[];
-}
+const categories = [
+  { id: "eletronics", name: "Eletrônicos" },
+  { id: "mensclothing", name: "Roupas Masculinas" },
+  { id: "mensshoes", name: "Calçados Masculinos" },
+  { id: "toys", name: "Brinquedos" },
+  { id: "womensclothing", name: "Roupas Femininas" },
+  { id: "womenshoes", name: "Calçados Femininos" },
+];
 
-export default function MenuCategory({ categories = [] }: MenuCategoryProps) {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+export default function MenuCategory() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get("category");
 
-  // Lista padrão de categorias caso nenhuma seja fornecida
-  const defaultCategories = [
-    "Eletrônicos",
-    "Roupas Masculinas",
-    "Calçados Masculinos",
-    "Brinquedos",
-    "Roupas Femininas",
-    "Calçados Femininos",
-  ];
-
-  const categoriesToShow =
-    categories.length > 0 ? categories : defaultCategories;
+  const handleCategoryClick = (categoryId: string) => {
+    if (currentCategory === categoryId) {
+      // Se a categoria já está selecionada, remove o filtro
+      router.push("/");
+    } else {
+      // Seleciona a nova categoria
+      router.push(`/?category=${categoryId}`);
+    }
+  };
 
   return (
     <div className={styles.menuContainer}>
-      <div className={styles.menuContent}>
-        {categoriesToShow.map((category) => (
-          <Link
-            key={category}
-            href={`/categoria/${category.toLowerCase()}`}
+      <h2>Categorias</h2>
+      <div className={styles.categories}>
+        {categories.map((category) => (
+          <button
+            key={category.id}
             className={`${styles.categoryButton} ${
-              activeCategory === category ? styles.active : ""
+              currentCategory === category.id ? styles.active : ""
             }`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => handleCategoryClick(category.id)}
           >
-            {category}
-          </Link>
+            {category.name}
+          </button>
         ))}
       </div>
     </div>

@@ -4,7 +4,6 @@ import { useCart } from "@/app/contexts/CartContext";
 import styles from "./productModal.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Image from "next/image";
 
 interface ProductModalProps {
   product: {
@@ -46,13 +45,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
         </button>
         <div className={styles.content}>
           <div className={styles.imageContainer}>
-            <Image
+            <img
               src={product.image}
               alt={product.name}
-              fill
-              sizes="(max-width: 768px) 100vw, 400px"
-              style={{ objectFit: "contain" }}
-              priority
+              className={styles.image}
             />
           </div>
           <div className={styles.details}>
