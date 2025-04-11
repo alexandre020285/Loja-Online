@@ -29,7 +29,6 @@ export default function MenuCategory() {
 
   return (
     <div className={styles.menuContainer}>
-      <h2>Categorias</h2>
       <div className={styles.categories}>
         {categories.map((category) => (
           <button
