@@ -39,9 +39,7 @@ export default function ProductList({ category }: ProductListProps) {
       setLoading(true);
       setError(null);
 
-      const url = category
-        ? `/api/products?category=${category}`
-        : "/api/products";
+      const url = category ? `/products?category=${category}` : "/products";
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -100,13 +98,7 @@ export default function ProductList({ category }: ProductListProps) {
   return (
     <div className={styles.productList}>
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onAddToCart={() => {
-            toast.success("Produto adicionado ao carrinho!");
-          }}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );

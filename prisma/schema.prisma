@@ -14,6 +14,22 @@ model users {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime
+  address   address?
+}
+
+model address {
+  id           String   @id @default(uuid())
+  street       String
+  number       String
+  complement   String?
+  neighborhood String
+  city         String
+  state        String
+  zipCode      String
+  userId       String   @unique
+  user         users    @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
 }
 
 model eletronics {

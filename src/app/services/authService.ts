@@ -1,83 +1,84 @@
-// import { PrismaClient } from "@prisma/client";
-// import bcrypt from "bcryptjs";
+import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
+import crypto from "crypto";
 
-// const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
-// export interface UserData {
-//   name: string;
-//   email: string;
-//   password: string;
-// }
+export interface UserData {
+  name: string;
+  email: string;
+  password: string;
+  address: {
+    street: string;
+    number: string;
+    complement?: string;
+    neighborhood: string;
+    city: string;
+    state: string;
+    zipCode: string;
+  };
+}
 
-// export const authService = {
-//   async register(userData: UserData) {
-//     const { name, email, password } = userData;
+export const authService = {
+  async register(userData: UserData) {
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
 
-//     // Verifica se o usuário já existe
-//     const existingUser = await prisma.user.findUnique({
-//       where: { email },
-//     });
+      const data = await response.json();
 
-//     if (existingUser) {
-//       throw new Error("Email já cadastrado");
-//     }
+      if (!response.ok) {
+        throw new Error(data.error || "Erro ao registrar usuário");
+      }
 
-//     // Criptografa a senha
-//     const hashedPassword = await bcrypt.hash(password, 10);
+      return data;
+    } catch (error) {
+      console.error("Erro no registro:", error);
+      throw error;
+    }
+  },
 
-//     // Cria o usuário no banco de dados
-//     const user = await prisma.user.create({
-//       data: {
-//         name,
-//         email,
-//         password: hashedPassword,
-//       },
-//     });
+  async login(email: string, password: string) {
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-//     return {
-//       id: user.id,
-//       name: user.name,
-//       email: user.email,
-//     };
-//   },
+      const data = await response.json();
 
-//   async login(email: string, password: string) {
-//     // Busca o usuário no banco de dados
-//     const user = await prisma.user.findUnique({
-//       where: { email },
-//     });
+      if (!response.ok) {
+        throw new Error(data.error || "Erro ao fazer login");
+      }
 
-//     if (!user) {
-//       throw new Error("Usuário não encontrado");
-//     }
+      return data;
+    } catch (error) {
+      console.error("Erro no login:", error);
+      throw error;
+    }
+  },
 
-//     // Verifica a senha
-//     const passwordMatch = await bcrypt.compare(password, user.password);
+  async getUserById(id: string) {
+    try {
+      const response = await fetch(`/api/users/${id}`);
+      const data = await response.json();
 
-//     if (!passwordMatch) {
-//       throw new Error("Senha incorreta");
-//     }
+      if (!response.ok) {
+        throw new Error(data.error || "Erro ao buscar usuário");
+      }
 
-//     return {
-//       id: user.id,
-//       name: user.name,
-//       email: user.email,
-//     };
-//   },
-
-//   async getUserById(id: string) {
-//     const user = await prisma.user.findUnique({
-//       where: { id },
-//     });
-
-//     if (!user) {
-//       throw new Error("Usuário não encontrado");
-//     }
-
-//     return {
-//       id: user.id,
-//       name: user.name,
-//       email: user.email,
-//     };
-//   },
-// };
+      return data;
+    } catch (error) {
+      console.error("Erro ao buscar usuário:", error);
+      throw error;
+    }
+  },
+};

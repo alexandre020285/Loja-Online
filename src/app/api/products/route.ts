@@ -15,10 +15,10 @@ interface BaseProduct {
 
 interface FormattedProduct {
   id: string;
-  name: string;
+  title: string;
   price: number;
   description: string;
-  image: string;
+  imageUrl: string;
   category: string;
   stock: number;
   brand: string;
@@ -96,10 +96,10 @@ export async function GET(request: Request) {
     // Formata os produtos para o frontend
     const formattedProducts: FormattedProduct[] = products.map((product) => ({
       id: `${product.category}-${product.id}`,
-      name: product.name,
+      title: product.name,
       price: Number(product.price),
       description: product.description,
-      image: product.image,
+      imageUrl: product.image,
       category: product.category || "",
       stock: 10,
       brand: product.brand || "",
