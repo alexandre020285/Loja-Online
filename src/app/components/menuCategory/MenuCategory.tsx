@@ -19,11 +19,11 @@ export default function MenuCategory() {
 
   const handleCategoryClick = (categoryId: string) => {
     if (currentCategory === categoryId) {
-      // Se a categoria já está selecionada, remove o filtro
+      // Se a categoria já está selecionada, volta para a home
       router.push("/");
     } else {
       // Seleciona a nova categoria
-      router.push(`/?category=${categoryId}`);
+      router.push(`/categoria?category=${categoryId}`);
     }
   };
 

@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "./contexts/AuthContext";
 import { useCart } from "./contexts/CartContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Header from "./components/header/header";
 import MenuCategory from "./components/menuCategory/MenuCategory";
 import PromotionalSlider from "./components/promotionalSlider/promotionalSlider";
+import ProductList from "./components/productList/ProductList";
 import { toast } from "react-toastify";
 import styles from "./page.module.css";
 
@@ -26,6 +27,8 @@ export default function Home() {
   const { currentUser } = useAuth();
   const { addToCart, openCart } = useCart();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

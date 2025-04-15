@@ -1,3 +1,4 @@
+/*
 import MenuCategory from "@/app/components/menuCategory/MenuCategory";
 import ProductList from "@/app/components/productList/ProductList";
 
@@ -7,7 +8,7 @@ interface CategoryPageProps {
   };
 }
 
-export default function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category } = params;
 
   return (
@@ -19,3 +20,4 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     </div>
   );
 }
+*/
