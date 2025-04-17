@@ -7,10 +7,6 @@ import styles from "./cart.module.css";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const formatPrice = (price: number) => {
-  return `R$ ${price.toFixed(2)}`;
-};
-
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const { currentUser } = useAuth();
@@ -20,18 +16,33 @@ export default function CartPage() {
 
   const handleRemoveItem = (id: string) => {
     removeFromCart(id);
-    toast.success("Item removido do carrinho!");
+    toast.error("Item removido do carrinho!", {
+      style: {
+        background: "#FEE2E2",
+        color: "#DC2626",
+      },
+    });
   };
 
   const handleUpdateQuantity = (id: string, quantity: number) => {
     if (quantity < 1) return;
     updateQuantity(id, quantity);
-    toast.success("Quantidade atualizada!");
+    toast.success("Quantidade atualizada!", {
+      style: {
+        background: "#DCFCE7",
+        color: "#16A34A",
+      },
+    });
   };
 
   const handleCheckout = () => {
     if (!currentUser) {
-      toast.error("Você precisa estar logado para finalizar a compra!");
+      toast.error("Você precisa estar logado para finalizar a compra!", {
+        style: {
+          background: "#FEE2E2",
+          color: "#DC2626",
+        },
+      });
       window.location.href = "/login";
       return;
     }
@@ -43,12 +54,23 @@ export default function CartPage() {
     setShowConfirmation(false);
     toast.success("Pedido finalizado com sucesso! Obrigado pela compra!", {
       position: "top-center",
+      style: {
+        background: "#DCFCE7",
+        color: "#16A34A",
+      },
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+    });
+  };
+
+  const formatPrice = (price: number) => {
+    return price.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
     });
   };
 
@@ -90,7 +112,7 @@ export default function CartPage() {
               <li key={item.id} className={styles.cartItem}>
                 <div className={styles.itemInfo}>
                   <h3>{item.name}</h3>
-                  <p>R$ {item.price.toFixed(2)}</p>
+                  <p>{formatPrice(item.price)}</p>
                 </div>
                 <div className={styles.itemActions}>
                   <button
@@ -123,7 +145,7 @@ export default function CartPage() {
           <div className={styles.cartFooter}>
             <div className={styles.total}>
               <span>Total:</span>
-              <span>R$ {total.toFixed(2)}</span>
+              <span>{formatPrice(total)}</span>
             </div>
             <button className={styles.checkoutButton} onClick={handleCheckout}>
               Finalizar Compra
@@ -187,14 +209,15 @@ export default function CartPage() {
               <ul>
                 {cart.map((item) => (
                   <li key={item.id}>
-                    {item.name} - {item.quantity}x R$ {item.price.toFixed(2)}
+                    {item.name} - {item.quantity}x {formatPrice(item.price)}
                   </li>
                 ))}
               </ul>
               <p className={styles.orderTotal}>
-                <strong>Total:</strong> R$ {total.toFixed(2)}
+                <strong>Total:</strong> {formatPrice(total)}
               </p>
             </div>
+
             <div className={styles.modalActions}>
               <button
                 className={styles.cancelButton}

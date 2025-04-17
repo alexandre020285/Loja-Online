@@ -119,13 +119,13 @@ src/
 
 ### Fechamento do pedido
 
-<img src="public/screenshots/detalhe-mobi.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
-<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/fechamento.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/fechamento-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
 
 </div>
 
 ## 📧 Contato
 
-Seu Nome - [@seu-twitter](https://twitter.com/seu-twitter) - email@exemplo.com
+Alexandre Alves - alexandre0202dev@gmail.com
 
-Link do Projeto: [https://github.com/seu-usuario/loja-online](https://github.com/seu-usuario/loja-online)
+Link do Projeto: https://github.com/alexandre020285/Loja-Online
