@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Loja Online
 
-## Getting Started
+Uma aplicação web moderna de e-commerce desenvolvida com Next.js, TypeScript e PostgreSQL.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend:**
+
+  - Next.js 14
+  - TypeScript
+  - React
+  - CSS Modules
+  - React Toastify (notificações)
+  - Next/font (otimização de fontes)
+
+- **Backend:**
+
+  - Next.js API Routes
+  - Prisma ORM
+  - PostgreSQL
+  - JWT (autenticação)
+
+- **Ferramentas:**
+  - Prisma Studio (visualização do banco de dados)
+  - ESLint (linting)
+  - Prettier (formatação de código)
+
+## 📋 Funcionalidades
+
+- **Autenticação:**
+
+  - Login e registro de usuários
+  - Gerenciamento de sessão com JWT
+  - Proteção de rotas
+  - Recuperação de senha
+
+- **Produtos:**
+
+  - Catálogo de produtos
+  - Filtragem por categorias
+  - Busca de produtos
+  - Detalhes do produto
+  - Imagens dos produtos
+
+- **Carrinho de Compras:**
+
+  - Adição/remoção de produtos
+  - Ajuste de quantidades
+  - Cálculo automático de total
+  - Persistência do carrinho
+  - Modal de carrinho
+
+- **Usuário:**
+  - Perfil do usuário
+  - Gerenciamento de endereços
+  - Histórico de pedidos
+  - Lista de desejos
+
+## 🖼️ Screenshots do Projeto
+
+<div align="center">
+
+### Página Inicial
+
+<img src="public/screenshots/home.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+
+### Login
+<img src="public/screenshots/home.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+
+### Cadastro
+<img src="public/screenshots/home.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+
+### Carrinho
+<img src="public/screenshots/home.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+
+### Detalhes do Produto
+<img src="public/screenshots/home.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+
+### Fechamento do pedido
+<img src="public/screenshots/home.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+<img src="public/screenshots/home-mobile.png" alt="Página Inicial - Desktop" width="400" height="400" style="margin: 10px" />
+
+
+
+
+
+
+</div>
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── app/
+│   ├── api/              # Rotas da API
+│   ├── components/       # Componentes React
+│   ├── contexts/         # Contextos React
+│   ├── services/         # Serviços da aplicação
+│   └── styles/           # Estilos globais
+├── prisma/
+│   └── schema.prisma     # Schema do banco de dados
+└── public/               # Arquivos estáticos
+    └── screenshots/      # Screenshots do projeto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Licença
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📧 Contato
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Seu Nome - [@seu-twitter](https://twitter.com/seu-twitter) - email@exemplo.com
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Link do Projeto: [https://github.com/seu-usuario/loja-online](https://github.com/seu-usuario/loja-online)

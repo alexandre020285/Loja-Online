@@ -95,15 +95,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     <CartContext.Provider
       value={{
         cart,
-        isOpen,
-        openCart,
-        closeCart,
         addToCart,
         removeFromCart,
         updateQuantity,
         clearCart,
         getTotalItems,
         getTotalPrice,
+        isOpen,
+        openCart,
+        closeCart,
       }}
     >
       {children}

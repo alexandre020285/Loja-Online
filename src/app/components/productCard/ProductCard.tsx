@@ -4,6 +4,8 @@ import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import ProductModal from "../productModal/ProductModal";
 import { useCart } from "@/app/contexts/CartContext";
+import { useAuth } from "../../contexts/AuthContext";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 interface Product {
@@ -20,15 +22,13 @@ interface Product {
 
 interface ProductCardProps {
   product: Product;
-  onAddToCart?: () => void;
 }
 
-export default function ProductCard({
-  product,
-  onAddToCart,
-}: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const { currentUser } = useAuth();
+  const router = useRouter();
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("pt-BR", {
@@ -39,6 +39,13 @@ export default function ProductCard({
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
+
+    if (!currentUser) {
+      toast.info("Faça login para adicionar produtos ao carrinho");
+      router.push("/login");
+      return;
+    }
+
     addToCart({
       id: product.id,
       name: product.name,

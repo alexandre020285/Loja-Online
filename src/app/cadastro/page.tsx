@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import styles from "./cadastro.module.css";
 import RegisterForm from "../components/auth/RegisterForm";
 
 export default function CadastroPage() {

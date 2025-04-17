@@ -112,19 +112,7 @@ export default function ProductList({ category }: ProductListProps) {
   return (
     <div className={styles.productsGrid}>
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onAddToCart={() => {
-            addToCart({
-              id: product.id,
-              name: product.name,
-              price: product.price,
-              image: product.image,
-            });
-            toast.success(`${product.name} adicionado ao carrinho!`);
-          }}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );

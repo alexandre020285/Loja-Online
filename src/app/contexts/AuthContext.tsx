@@ -27,7 +27,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     useState<AuthContextType["currentUser"]>(null);
 
   useEffect(() => {
-    // Verifica se há um usuário logado no localStorage
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setCurrentUser(JSON.parse(storedUser));
@@ -51,9 +50,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const register = async (userData: UserData) => {
     try {
       const user = await authService.register(userData);
-      setCurrentUser(user);
-      localStorage.setItem("user", JSON.stringify(user));
-      toast.success("Cadastro realizado com sucesso!");
+      toast.success("Usuário cadastrado com sucesso!");
+      return user;
     } catch (error) {
       toast.error(
         error instanceof Error ? error.message : "Erro ao fazer cadastro"
