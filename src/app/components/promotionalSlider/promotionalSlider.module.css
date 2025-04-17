@@ -36,17 +36,20 @@
   padding: 1.5rem;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   z-index: 2;
+  color: white;
 }
 
 .content h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .content p {
   font-size: 1rem;
   opacity: 0.9;
+  color: white;
 }
 
 .dots {

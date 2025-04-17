@@ -67,12 +67,16 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         <div className={styles.content}>
-          <h3 className={styles.title}>{product.name}</h3>
-          <p className={styles.description}>{product.description}</p>
-          <p className={styles.price}>{formatPrice(product.price)}</p>
-          <button onClick={handleAddToCart} className={styles.button}>
-            Adicionar ao Carrinho
-          </button>
+          <div className={styles.info}>
+            <h3 className={styles.title}>{product.name}</h3>
+            <p className={styles.description}>{product.description}</p>
+            <p className={styles.price}>{formatPrice(product.price)}</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button onClick={handleAddToCart} className={styles.button}>
+              Adicionar ao Carrinho
+            </button>
+          </div>
         </div>
       </div>
 

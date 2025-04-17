@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useRouter } from "next/navigation";
-import styles from "./login.module.css";
+import styles from "../../login/login.module.css";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
