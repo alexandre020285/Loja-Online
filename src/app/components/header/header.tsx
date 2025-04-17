@@ -78,8 +78,8 @@ export default function Header() {
               <Link href="/login" className={styles.navLink}>
                 Login
               </Link>
-              <Link href="/cadastro" className={styles.navLink}>
-                Cadastro
+              <Link href="/register" className={styles.navLink}>
+                Cadastrar
               </Link>
             </div>
           )}

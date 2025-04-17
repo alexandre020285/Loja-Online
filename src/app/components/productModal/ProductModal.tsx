@@ -4,6 +4,7 @@ import { useCart } from "@/app/contexts/CartContext";
 import styles from "./productModal.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { formatPrice } from "@/app/utils/format";
 
 interface ProductModalProps {
   product: {
@@ -53,10 +54,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
           <div className={styles.details}>
             <h2 className={styles.title}>{product.name}</h2>
-            <p className={styles.price}>
-              R$ {Number(product.price).toFixed(2)}
-            </p>
-            <p className={styles.description}>{product.description}</p>
+            <div className={styles.productInfo}>
+              <p className={styles.description}>{product.description}</p>
+              <p className={styles.price}>{formatPrice(product.price)}</p>
+            </div>
             <button className={styles.addButton} onClick={handleAddToCart}>
               Adicionar ao Carrinho
             </button>

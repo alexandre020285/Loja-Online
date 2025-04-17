@@ -35,7 +35,7 @@ export default function LoginPage() {
           {error && <p className={styles.error}>{error}</p>}
           <LoginForm />
           <p className={styles.registerLink}>
-            Não tem uma conta? <Link href="/cadastro">Cadastre-se</Link>
+            Não tem uma conta? <Link href="/register">Cadastre-se</Link>
           </p>
         </div>
         <div className={styles.usersSection}>

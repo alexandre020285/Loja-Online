@@ -4,11 +4,22 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { authService, UserData } from "../services/authService";
 import { toast } from "react-toastify";
 
+interface Address {
+  street: string;
+  number: string;
+  complement?: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  zipCode: string;
+}
+
 interface AuthContextType {
   currentUser: {
     id: string;
     name: string;
     email: string;
+    address?: Address;
   } | null;
   login: (email: string, password: string) => Promise<void>;
   register: (userData: UserData) => Promise<void>;
@@ -36,8 +47,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = async (email: string, password: string) => {
     try {
       const user = await authService.login(email, password);
-      setCurrentUser(user);
-      localStorage.setItem("user", JSON.stringify(user));
+      const userWithAddress = {
+        ...user,
+        address: user.address || null,
+      };
+      setCurrentUser(userWithAddress);
+      localStorage.setItem("user", JSON.stringify(userWithAddress));
       toast.success("Login realizado com sucesso!");
     } catch (error) {
       toast.error(

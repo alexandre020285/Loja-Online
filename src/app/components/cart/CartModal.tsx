@@ -7,6 +7,7 @@ import styles from "./CartModal.module.css";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { formatPrice } from "@/app/utils/format";
 
 export default function CartModal() {
   const { cart, removeFromCart, updateQuantity, isOpen, closeCart, clearCart } =
@@ -109,7 +110,7 @@ export default function CartModal() {
               <div className={styles.cartFooter}>
                 <div className={styles.total}>
                   <strong>Total:</strong>
-                  <span>R$ {total.toFixed(2)}</span>
+                  <span>{formatPrice(total)}</span>
                 </div>
                 <button
                   className={styles.checkoutButton}
@@ -137,27 +138,29 @@ export default function CartModal() {
                         <div className={styles.itemImage}>
                           <img src={item.image} alt={item.name} />
                         </div>
-                        <div className={styles.itemInfo}>
-                          <h3>{item.name}</h3>
-                          <p>R$ {item.price.toFixed(2)}</p>
+                        <div className={styles.itemDetails}>
+                          <p>{item.name}</p>
+                          <p>{formatPrice(item.price)}</p>
+                          <div className={styles.quantityControls}>
+                            <button
+                              onClick={() =>
+                                updateQuantity(item.id, item.quantity - 1)
+                              }
+                              disabled={item.quantity <= 1}
+                            >
+                              -
+                            </button>
+                            <span>{item.quantity}</span>
+                            <button
+                              onClick={() =>
+                                updateQuantity(item.id, item.quantity + 1)
+                              }
+                            >
+                              +
+                            </button>
+                          </div>
                         </div>
                         <div className={styles.itemActions}>
-                          <button
-                            onClick={() =>
-                              updateQuantity(item.id, item.quantity - 1)
-                            }
-                            disabled={item.quantity <= 1}
-                          >
-                            -
-                          </button>
-                          <span>{item.quantity}</span>
-                          <button
-                            onClick={() =>
-                              updateQuantity(item.id, item.quantity + 1)
-                            }
-                          >
-                            +
-                          </button>
                           <button
                             onClick={() => handleRemoveItem(item.id, item.name)}
                             className={styles.removeButton}
@@ -171,7 +174,7 @@ export default function CartModal() {
                   <div className={styles.cartFooter}>
                     <div className={styles.total}>
                       <strong>Total:</strong>
-                      <span>R$ {total.toFixed(2)}</span>
+                      <span>{formatPrice(total)}</span>
                     </div>
                     <button
                       className={styles.checkoutButton}

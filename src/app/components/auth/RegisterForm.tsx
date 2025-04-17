@@ -41,7 +41,7 @@ export default function RegisterForm() {
         email,
         password,
         address: {
-          cep,
+          zipCode: cep,
           street,
           number,
           complement,

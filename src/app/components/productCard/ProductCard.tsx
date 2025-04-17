@@ -7,6 +7,7 @@ import { useCart } from "@/app/contexts/CartContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { formatPrice } from "@/app/utils/format";
 
 interface Product {
   id: string;
@@ -29,13 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const { currentUser } = useAuth();
   const router = useRouter();
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(price);
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -46,13 +41,22 @@ export default function ProductCard({ product }: ProductCardProps) {
       return;
     }
 
+    setIsLoading(true);
     addToCart({
       id: product.id,
       name: product.name,
       price: product.price,
       image: product.image,
-    });
-    toast.success(`${product.name} adicionado ao carrinho!`);
+    })
+      .then(() => {
+        toast.success(`${product.name} adicionado ao carrinho!`);
+      })
+      .catch(() => {
+        toast.error("Erro ao adicionar o produto ao carrinho");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -73,8 +77,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             <p className={styles.price}>{formatPrice(product.price)}</p>
           </div>
           <div className={styles.buttonContainer}>
-            <button onClick={handleAddToCart} className={styles.button}>
-              Adicionar ao Carrinho
+            <button
+              onClick={handleAddToCart}
+              className={styles.button}
+              disabled={isLoading}
+            >
+              {isLoading ? "Adicionando..." : "Adicionar ao Carrinho"}
             </button>
           </div>
         </div>

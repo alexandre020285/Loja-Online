@@ -7,6 +7,10 @@ import styles from "./cart.module.css";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
+const formatPrice = (price: number) => {
+  return `R$ ${price.toFixed(2)}`;
+};
+
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const { currentUser } = useAuth();
@@ -141,6 +145,43 @@ export default function CartPage() {
                 <strong>Email:</strong> {currentUser?.email}
               </p>
             </div>
+
+            <div className={styles.orderInfo}>
+              <h3>Informações de Entrega</h3>
+              {currentUser?.address ? (
+                <div className={styles.addressInfo}>
+                  <p>
+                    <strong>Rua:</strong> {currentUser.address.street}
+                  </p>
+                  <p>
+                    <strong>Número:</strong> {currentUser.address.number}
+                  </p>
+                  {currentUser.address.complement && (
+                    <p>
+                      <strong>Complemento:</strong>{" "}
+                      {currentUser.address.complement}
+                    </p>
+                  )}
+                  <p>
+                    <strong>Bairro:</strong> {currentUser.address.neighborhood}
+                  </p>
+                  <p>
+                    <strong>Cidade:</strong> {currentUser.address.city}
+                  </p>
+                  <p>
+                    <strong>Estado:</strong> {currentUser.address.state}
+                  </p>
+                  <p>
+                    <strong>CEP:</strong> {currentUser.address.zipCode}
+                  </p>
+                </div>
+              ) : (
+                <div className={styles.noAddress}>
+                  Nenhum endereço cadastrado
+                </div>
+              )}
+            </div>
+
             <div className={styles.orderSummary}>
               <h3>Resumo do Pedido</h3>
               <ul>
